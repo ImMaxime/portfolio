@@ -1,459 +1,5 @@
 <style>
-	:root{
-		--default-black: #0B0D17;
-		--default-white: #FFF;
-		--text-gray-300: #D9DBE1;
-		--text-gray-900: #18191F;
-		--grey-line: #737B7D;
-		--color-purple: #8C30F5;
-		--color-purple-100: #F1E4FF;
-	}
-	::selection{
-		color: var(--default-white, #FFF);
-		background: var(--color-purple-100, #F1E4FF);
-	}
-	button{
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
-	body{
-		background-color: rgb(28, 28, 28);
-		background: linear-gradient(187deg, #E0CDF9 0%, var(--default-white) 15.21%, var(--default-white) 85%, #E0CDF9 100%);
-		font-family: Manrope, system-ui;
-		margin: 0;
-		overflow-x: hidden;
-	
-	}
-	section{
-		opacity: 0; /* Set initial opacity to 0 */
-		transform: translateY(45px); /* Move the element down slightly */
-		animation: fadeInUp 1s ease forwards;
-		min-height: 614px;
-		scroll-behavior: smooth;
-	}
-	header, section, footer{
-		padding: 32px 96px;
-		display: flex;
-	}
-	header{
-		height: 72px;
-		justify-content: space-between;
-		align-items: center;
-		position: -webkit-sticky;
-		position: sticky;
-		top: 0;
-		padding-block: 8px;
-		z-index: 1;
-		transition: background-color 0.3s ease;
-	}
-	ul{
-		display: flex;
-		gap: 12px;
-		list-style-type: none; 
-		font-size: 14px;
-		font-weight: 700;
-		line-height: 20px; /* 142.857% */
-	}
-	li{
-		cursor: pointer;
-	}
-	a {
-		color: inherit; /* blue colors for links too */
-		text-decoration: inherit; /* no underline */
-	}
-	h3{
-		color: var(--text-gray-900, #18191F);
-		font-size: 18px;
-		line-height: 32px; /* 177.778% */
-	}
-	h1{
-		font-size: 48px;
-		font-weight: 800;
-		line-height: 64px; /* 133.333% */
-		margin-bottom: 0;
-	}
-	p{
-		font-size: 18px;
-		line-height: 32px; /* 177.778% */
-	}
-	input[type="text"]{
-		border: none;
-		width: inherit;
-	
-		border-bottom: 1px solid var(--grey-line, #737B7D);
-		background-color: transparent;
-		color: var(--primeraly-black, #383C3E);
-		font-size: 16px;
-		line-height: 160%; /* 25.6px */
-		letter-spacing: 0.5px;
-	
-		display: inline-flex;
-		margin: 28px 0px;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 12px;
-		transition: all 0.1s linear;
-	}
-	input[type="text"]:focus{
-		outline: none;
-		border-bottom: 2px solid var(--color-purple, #8C30F5);
-	}
-	form{
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		width: 548px;
 
-	}
-	hr{
-		width: 100%;
-		  fill: var(--default-white, #FFF);
-		  opacity: 0.2;
-	}
-	footer{
-		height: 256px;
-		background: var(--default-black, #0B0D17);
-		color: var(--default-white, #FFF);
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-	}
-	footer ul{
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 26px; /* 162.5% */
-		padding: 0;
-	}
-	footer .container{
-		color: var(--text-gray-300, #D9DBE1);
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 24px; /* 171.429% */
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row;
-		align-items: center;
-		width: 100%;
-	}
-	#section-experience{
-		align-items: center;
-		justify-content: space-between;
-	}
-	#section-experience .container{
-		display: flex;
-		width: 445px;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 8px;
-		margin-bottom: 2rem;
-	}
-	#section-hero h2{
-		font-size: 72px;
-		font-weight: 800;
-		line-height: 98px; /* 136.111% */
-		margin-bottom:0;
-	}
-	.button--learnmore{
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		color: var(--text-gray-900, #18191F);
-		font-size: 14px;
-		font-weight: 800;
-		line-height: 18px; /* 128.571% */
-		letter-spacing: 2px;
-		text-transform: uppercase;
-		cursor: pointer;
-	}
-	.button--learnmore, .button--learnmore svg, .button--learnmore__arrow{
-		stroke:#18191F;
-		stroke-width:2;
-	}
-	.button--learnmore svg{
-		width: 48;
-		height: 48;
-		fill: none;
-	}
-	.button--learnmore svg circle{
-		transition: all 0.4s linear;
-		fill: var(--default-white);
-	}
-	.button--learnmore:hover svg circle{
-		fill: var(--color-purple);
-		stroke: var(--default-white);
-		transition: all 0.2s linear;
-	}
-
-	.button--learnmore:hover svg .button--learnmore__arrow{
-		stroke: var(--default-white);
-		transition: all 0.2s linear;
-	}
-
-	.container--circle{
-		position: relative;
-	}
-	.circle{
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 486px;
-		height: 486px;
-		border-radius: 486px;
-		border: 3px solid var(--color-purple-100, #F1E4FF);
-	}
-	.inner-circle{
-		position: absolute;
-		left: calc(50% - 170px);
-		top: calc(50% - 170px);
-
-		min-width: 200px;
-		height: 200px;
-		border-radius: 340px;
-		background: #f7f7f7;
-		border: 73px solid var(--color-purple-100, #F1E4FF);
-
-	}
-	.container-center{
-		width: 350px;
-		color: var(--text-gray-900, #18191F);
-		text-align: center;
-
-		font-size: 16px;
-		line-height: 26px; /* 162.5% */
-	}
-	.container-center b{
-	font-size: 24px;
-	font-weight: 600;
-	line-height: 32px; /* 133.333% */
-	}
-	footer #section-skill, .container-center{
-		align-items: center;
-	    display: flex;
-    	flex-direction: column;
-	}
-	#section-skill .container {
-		display: grid;
-		justify-items: center;
-		margin-top: 48px;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
-	
-	}
-	#section-hero, #section-skill, #section-project{
-		flex-direction: column;
-	}
-	#section-contact, #section-project{
-		justify-content: space-between;
-	}
-	#section-contact button{
-		display: flex;
-		width: 196px;
-		height: 62px;
-		padding: 16px 0px;
-		justify-content: center;
-		align-items: center;
-		border-radius: 8px;
-		background: var(--color-purple, #8C30F5);
-		color: var(--default-white, #FFF);
-
-		font-size: 20px;
-		font-weight: 700;
-		line-height: 30px; /* 150% */
-	}
-	
-	#section-contact button:hover{
-		background-color: transparent;
-		border: 2px solid var(--color-purple, #8C30F5);
-		color: var(--color-purple, #8C30F5);
-	}
-
-	.project-showcase{
-		width: 60%;
-		border-radius: 12px;
-	}
-	.icon{
-		height: 64px;
-		width: 64px;
-		background-color: var(--color-purple);
-		fill: var(--default-white);
-		border-radius: 50%;
-		position: absolute;
-		z-index: 2;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.icon svg{
-		max-width: 42px;
-		max-height: 42px;
-	}
-	.icon:nth-child(2n){
-		background-color: #dc95ff;
-	}
-
-	#mouse-track{
-		position: absolute;
-		transform: translate(-35%, 0%);
-		z-index: -1;
-	}
-
-	@keyframes fadeInUp {
-		to {
-		  opacity: 1; /* Fade in */
-		  transform: translateY(0); /* Move back to original position */
-		} 
-	}
-	.rotate{
-		animation: rotate 15s linear infinite;
-	}
-	.rotateReversed{
-		animation: rotateReversed 15s linear infinite;
-	}
-	@keyframes rotate {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	}
-	@keyframes rotateReversed {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(-360deg); }
-	}
-
-	@media only screen and (max-width: 1250px){
-		/*Tablets [601px -> 1200px]*/
-		section{
-		  justify-content: space-between;
-		  flex-direction: column;
-		  align-items: stretch;
-		  justify-content: flex-start !important;
-		}
-		header, section, footer {
-		  padding: 32px 85px;
-		}
-		header{
-			padding-block: 0px;
-		}
-		#section-skill .container{
-		  grid-template-columns: 1fr 1fr;
-		  grid-template-rows: 1fr 1fr;
-		}
-		.container{
-			width: auto;
-		}
-		.carousel--item{
-			flex-direction: column;
-		}
-		.project-showcase, .carousel--item .container{
-			min-width: 100%;
-			max-width: max-content;
-			padding: 0px !important;
-		}
-	}
-	@media only screen and (max-width: 860px){
-		/*Big smartphones [426px -> 600px]*/
-
-		
-		header, section, footer {
-		  padding: 32px 32px;
-		}
-		header{
-			padding-block: 8px;
-		}
-		
-		ul.navbar li{
-			display: none;
-  		}
- 		ul.navbar li#language_button {
- 		  display: block;
- 		}
-	  	#section-skill .container{
-			grid-template-columns: 1fr ;
-			grid-template-rows: 1fr;
-		}
-		#section-hero h2 {
-	    	font-size: 46px;
-	    	line-height: 52px;
-		}
-
-		.container-center b {
-	    	font-size: 20px;
-		}
-		.container--circle{
-			scale: 0.75;
-		}
-		form{
-			width: auto;
-			align-items: stretch;
-		}
-
-		h1, h2{
-			font-size: 38px !important;
-		}
-
-		p {
-	    	font-size: 14px;
-	    	line-height: 24px;
-		}
-
-	}
-	@media only screen and (max-width: 425px){
-		/*Small smartphones [325px -> 425px]*/
-		h1, h2{
-			font-size: 32px !important;
-		}
-		h3{
-			font: 16px !important;
-		}
-		#section-skill, .container-center {
-		    width: calc(100vw - 83px);
-		}
-		.container--circle{
-			scale: 0.6;
-		}
-	}
-	.carousel {
-	    width: 100%;
-	    overflow: hidden;
-	}
-	.carousel-container {
-	    display: flex;
-	    transition: transform 0.3s ease-in-out;
-	}
-	.carousel--item {
-	    flex: 0 0 100%;
-	    height: 100%;
-		max-width: 100vw;
-		display: flex;
-		justify-content: space-between;
-	}
-	.carousel--item .container{
-		display: flex;
-	    flex-direction: column;
-	    justify-content: center;
-		padding: 1rem;
-		max-width: 40%;
-	}
-	.carousel--buttons{
-		display: flex;
-	    align-items: center;
-	    justify-content: center;
-		font-weight: 1000;
-	}
-	.carousel--dot{
-		width: 8px;
-	    height: 8px;
-	    background: var(--text-gray-300);
-	    border-radius: 50%;
-		cursor: pointer;
-		margin: 2px;
-		transition: all 0.3s ease-in-out;
-	}
-	.carousel--dot.selected{
-		background-color: var(--color-purple);
-		scale:1.1;
-	}
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -461,16 +7,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
   <title>Document</title>
 </head>
 <body>
-
   <header>
-	
 	<a href="#section-hero">
 	  <svg xmlns="http://www.w3.org/2000/svg" version="1.0" height="52.000000pt" viewBox="80 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-		<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#8C30F5" stroke="none">
+		<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="var(--default-black)" stroke="none">
 		<path d="M1910 3784 c-30 -55 -138 -264 -240 -466 l-186 -367 -199 400 c-110 220 -204 403 -208 406 -6 3 -240 -108 -256 -123 -2 -1 87 -180 198 -398 111 -217 201 -397 201 -400 0 -3 -85 -6 -190 -6 l-190 0 0 -200 0 -200 190 0 190 0 -200 -400 c-110 -220 -200 -402 -200 -405 0 -3 58 -34 128 -69 l128 -64 204 409 205 409 38 -78 c122 -244 373 -726 385 -738 7 -8 11 -14 8 -14 -4 0 5 -23 20 -52 l26 -51 21 34 c12 19 24 36 28 39 3 3 116 224 250 492 l244 488 55 0 55 0 244 -488 c134 -268 247 -489 250 -492 4 -3 16 -20 28 -39 l21 -34 26 51 c15 29 24 52 20 52 -3 0 1 6 8 14 12 12 263 494 385 738 l38 78 205 -409 204 -409 128 64 c70 35 128 66 128 69 0 3 -90 185 -200 405 l-200 400 205 0 205 0 0 200 0 200 -205 0 c-113 0 -205 3 -205 6 0 3 90 183 201 400 111 218 200 397 198 398 -16 15 -250 126 -256 123 -4 -3 -98 -186 -208 -406 l-199 -400 -186 367 c-102 202 -210 411 -240 466 l-53 99 -20 -39 c-11 -22 -23 -41 -27 -44 -3 -3 -116 -222 -251 -487 l-244 -483 -55 0 -55 0 -244 483 c-135 265 -248 484 -251 487 -4 3 -16 22 -27 44 l-20 39 -53 -99z m155 -741 c55 -109 101 -201 103 -205 2 -5 -91 -8 -207 -8 l-211 0 102 205 c57 113 105 205 108 205 3 0 50 -89 105 -197z m1203 -8 l102 -205 -211 0 c-116 0 -209 3 -207 8 35 74 204 402 208 402 3 0 51 -92 108 -205z m-1098 -611 c0 -12 -202 -404 -208 -404 -6 0 -199 369 -210 401 -2 5 82 9 207 9 116 0 211 -3 211 -6z m1198 -3 c-11 -32 -204 -401 -210 -401 -6 0 -208 392 -208 404 0 3 95 6 211 6 125 0 209 -4 207 -9z"/>
 		</g>
 		</svg>
@@ -553,8 +98,60 @@
 	</div>
 
   </section>
-  <section id="section-skill">
+  <section id="section-project">
+	<div class="carousel">
+        <div class="carousel-container">
+			<div class="carousel--item">
+				<!--	CRT Emulator	-->
+				<img class="project-showcase" src="img/CRT.webp" width="100%" data-tu-noclick="yes" data-tu-is-image="yes" data-tu-multiple="no">
+				<div class="container">
+					<h1 id="project-title">CRT Emulator</h1>
+					<p id="crt_desc">
+						Get the coveted CRT effect in the click of a button. Our CRT Emulator gets the need for a bulky, tedious setup out of the way and gives you complete control of every individual element of the CRT look. For <i>Adobe After Effect</i>.
+					</p>
+					<a class="button--learnmore" href="https://ezco.tv/products/crt-emulator" target="_blank">
+						<svg>
+							<circle cx="24" cy="24" r="23" />
+							<path class="button--learnmore__arrow" fill-rule="evenodd" clip-rule="evenodd" d="M20.2273 17.2007C20.1296 17.1349 20 17.1247 19.8917 17.1754C19.7837 17.2261 19.7156 17.3289 19.7156 17.4413V30.5595C19.7156 30.6719 19.7837 30.7748 19.8917 30.8254C19.9374 30.8469 19.9875 30.8576 20.037 30.8576C20.1042 30.8576 20.171 30.8383 20.2273 30.8001L29.8701 24.241C29.9528 24.1847 30.0013 24.0952 30.0013 24.0004C30.0013 23.9056 29.9528 23.8162 29.8701 23.7598L20.2273 17.2007Z" />
+						</svg>
+						<p id="button--learnmore">LEARN MORE</p> 
+					</a>
+				</div>
+			</div>
+            <div class="carousel--item">
+				<!--	Rollback 8		-->
+				<img class="project-showcase" src="img/RB8.gif"" width="100%" data-tu-noclick="yes" data-tu-is-image="yes" data-tu-multiple="no">
+				<div class="container">
+				  	<h1 id="project-title">Rollback 8 v2</h1>
+				  	<p id="rollback8_desc">
+						One-click ultra-realistic 8MM Film Emulation effect for <i>Adobe After Effect</i> & <i>Adobe Premiere Pro</i>.
+				  	</p>
+				  	<a class="button--learnmore" href="https://fredpelle.tv/products/rollback8" target="_blank">
+						<svg>
+					  		<circle cx="24" cy="24" r="23" />
+					  		<path class="button--learnmore__arrow" fill-rule="evenodd" clip-rule="evenodd" d="M20.2273 17.2007C20.1296 17.1349 20 17.1247 19.8917 17.1754C19.7837 17.2261 19.7156 17.3289 19.7156 17.4413V30.5595C19.7156 30.6719 19.7837 30.7748 19.8917 30.8254C19.9374 30.8469 19.9875 30.8576 20.037 30.8576C20.1042 30.8576 20.171 30.8383 20.2273 30.8001L29.8701 24.241C29.9528 24.1847 30.0013 24.0952 30.0013 24.0004C30.0013 23.9056 29.9528 23.8162 29.8701 23.7598L20.2273 17.2007Z" />
+						</svg>
+						<p id="button--learnmore">LEARN MORE</p> 
+				  	</a>
+				</div>
+        	</div>
+    	</div>
+    </div>
+	<div class="carousel--buttons">
+		<button id="prevBtn">
+			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="var(--color-purple)">
+				<path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9L117.5 269.8c-3.5-3.8-5.5-8.7-5.5-13.8s2-10.1 5.5-13.8l99.9-107.1c4.2-4.5 10.1-7.1 16.3-7.1c12.3 0 22.3 10 22.3 22.3l0 57.7 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 57.7c0 12.3-10 22.3-22.3 22.3c-6.2 0-12.1-2.6-16.3-7.1z"/>
+			</svg>
+		</button>
+		<button id="nextBtn">
+			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="var(--color-purple)">
+				<path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"/>
+			</svg>	
+		</button>
+	</div>
 
+  </section>
+  <section id="section-skill">
 	<h1 id="experience_title">Experiences</h1>
 	<p id="experience_description">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
 	<div class="container">
@@ -622,67 +219,13 @@
 	</div>
 	
   </section>
-  <section id="section-project">
-	<div class="carousel">
-        <div class="carousel-container">
-            <div class="carousel--item">
-				<!--	Rollback 8		-->
-				<img class="project-showcase" src="https://lh3.google.com/u/0/d/1GadOqvssW4uI6KExg0isK3khjpcjwyqV=w1280-h1300-iv1" width="100%" data-tu-noclick="yes" data-tu-is-image="yes" data-tu-multiple="no">
-				<div class="container">
-				  	<h1 id="project-title">Rollback 8 v2</h1>
-				  	<p id="rollback8_desc">
-						One-click ultra-realistic 8MM Film Emulation effect for <i>Adobe After Effect</i> & <i>Adobe Premiere Pro</i>.
-				  	</p>
-				  	<a class="button--learnmore" href="https://fredpelle.tv/products/rollback8" target="_blank">
-						<svg>
-					  		<circle cx="24" cy="24" r="23" />
-					  		<path class="button--learnmore__arrow" fill-rule="evenodd" clip-rule="evenodd" d="M20.2273 17.2007C20.1296 17.1349 20 17.1247 19.8917 17.1754C19.7837 17.2261 19.7156 17.3289 19.7156 17.4413V30.5595C19.7156 30.6719 19.7837 30.7748 19.8917 30.8254C19.9374 30.8469 19.9875 30.8576 20.037 30.8576C20.1042 30.8576 20.171 30.8383 20.2273 30.8001L29.8701 24.241C29.9528 24.1847 30.0013 24.0952 30.0013 24.0004C30.0013 23.9056 29.9528 23.8162 29.8701 23.7598L20.2273 17.2007Z" />
-						</svg>
-						<p id="button--learnmore">LEARN MORE</p> 
-				  	</a>
-				</div>
-        	</div>
-        	<div class="carousel--item">
-				<!--	CRT Emulator	-->
-				<img class="project-showcase" src="https://lh3.google.com/u/0/d/1oED7SikGRTXr8kJI9oQ-YMEZyexujfv-=w1817-h1301-iv1" width="100%" data-tu-noclick="yes" data-tu-is-image="yes" data-tu-multiple="no">
-
-				<div class="container">
-					<h1 id="project-title">CRT Emulator</h1>
-					<p id="crt_desc">
-						Get the coveted CRT effect in the click of a button. Our CRT Emulator gets the need for a bulky, tedious setup out of the way and gives you complete control of every individual element of the CRT look. For <i>Adobe After Effect</i>.
-					</p>
-					<a class="button--learnmore" href="https://ezco.tv/products/crt-emulator" target="_blank">
-						<svg>
-							<circle cx="24" cy="24" r="23" />
-							<path class="button--learnmore__arrow" fill-rule="evenodd" clip-rule="evenodd" d="M20.2273 17.2007C20.1296 17.1349 20 17.1247 19.8917 17.1754C19.7837 17.2261 19.7156 17.3289 19.7156 17.4413V30.5595C19.7156 30.6719 19.7837 30.7748 19.8917 30.8254C19.9374 30.8469 19.9875 30.8576 20.037 30.8576C20.1042 30.8576 20.171 30.8383 20.2273 30.8001L29.8701 24.241C29.9528 24.1847 30.0013 24.0952 30.0013 24.0004C30.0013 23.9056 29.9528 23.8162 29.8701 23.7598L20.2273 17.2007Z" />
-						</svg>
-						<p id="button--learnmore">LEARN MORE</p> 
-					</a>
-				</div>
-			</div>
-    	</div>
-    </div>
-	<div class="carousel--buttons">
-		<button id="prevBtn">
-			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="var(--color-purple)">
-				<path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9L117.5 269.8c-3.5-3.8-5.5-8.7-5.5-13.8s2-10.1 5.5-13.8l99.9-107.1c4.2-4.5 10.1-7.1 16.3-7.1c12.3 0 22.3 10 22.3 22.3l0 57.7 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 57.7c0 12.3-10 22.3-22.3 22.3c-6.2 0-12.1-2.6-16.3-7.1z"/>
-			</svg>
-		</button>
-		<button id="nextBtn">
-			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="var(--color-purple)">
-				<path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"/>
-			</svg>	
-		</button>
-	</div>
-
-  </section>
   <section id="section-contact">
 	  
 	<div class="container">
 		<h1 id="contact_title">Contact Me</h1>
 	  	<p id="contact_description">Need an experienced and skilled hand with custom IT projects? 
 		Fill out the form to get a free consultation.</p>
-		<svg id="mouse-track" width="670" height="670" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_235_973)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M100 -4.37114e-06C155.228 -6.78525e-06 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 5.67237e-06 155.228 3.25826e-06 100C8.44143e-07 44.7715 44.7715 -1.95703e-06 100 -4.37114e-06ZM100 -4.37114e-06C138.108 -6.03688e-06 169 30.8923 169 69C169 107.108 138.108 138 100 138C61.8924 138 31 107.108 31 69C31 30.8923 61.8924 -2.7054e-06 100 -4.37114e-06ZM132 69C132 51.3269 117.673 37 100 37C82.3269 37 68 51.3269 68 69C68 86.6731 82.3269 101 100 101C117.673 101 132 86.6731 132 69Z" fill="url(#paint0_linear_235_973)"/> </g> <defs> <linearGradient id="paint0_linear_235_973" x1="-9.344e-06" y1="23" x2="152.5" y2="160.5" gradientUnits="userSpaceOnUse"> <stop stop-color="var(--color-purple-100)"/> <stop offset="1" stop-color="#E7E9FF"/> </linearGradient> <clipPath id="clip0_235_973"> <rect width="200" height="200" fill="white" transform="translate(7.62939e-06 200) rotate(-90)"/> </clipPath> </defs> 
+		<svg id="mouse-track" width="670" height="670" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_235_973)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M100 -4.37114e-06C155.228 -6.78525e-06 200 44.7715 200 100C200 155.228 155.228 200 100 200C44.7715 200 5.67237e-06 155.228 3.25826e-06 100C8.44143e-07 44.7715 44.7715 -1.95703e-06 100 -4.37114e-06ZM100 -4.37114e-06C138.108 -6.03688e-06 169 30.8923 169 69C169 107.108 138.108 138 100 138C61.8924 138 31 107.108 31 69C31 30.8923 61.8924 -2.7054e-06 100 -4.37114e-06ZM132 69C132 51.3269 117.673 37 100 37C82.3269 37 68 51.3269 68 69C68 86.6731 82.3269 101 100 101C117.673 101 132 86.6731 132 69Z" fill="url(#paint0_linear_235_973)"/> </g> <defs> <linearGradient id="paint0_linear_235_973" x1="-9.344e-06" y1="23" x2="152.5" y2="160.5" gradientUnits="userSpaceOnUse"> <stop stop-color="var(--color-purple-100)"/> <stop offset="1" stop-color="var(--default-white)"/> </linearGradient> <clipPath id="clip0_235_973"> <rect width="200" height="200" fill="white" transform="translate(7.62939e-06 200) rotate(-90)"/> </clipPath> </defs> 
 		</svg>
 	</div>
 	
@@ -773,7 +316,7 @@
 	    const radians = Math.atan2(mouseY - elementY, mouseX - elementX);
 	    const degrees = radians * (180 / Math.PI) + 90;
 
-	    eye.style.transform = `translate(-35%,0%) rotate(${degrees}deg)`;
+	    eye.style.transform = `translate(-35%,-9%) rotate(${degrees}deg)`;
 	});
 		// Add this script to your HTML file, preferably at the end of the body tag or in an external JavaScript file.
 	document.addEventListener("DOMContentLoaded", function() {
@@ -987,7 +530,6 @@
 		let obj;
 		Object.entries(text).forEach(entry => {
 		  const [key, value] = entry;
-		  // console.log(key, document.getElementById(key));
 		  if(obj = document.querySelectorAll("#"+key)){
 			for(var i = 0; i < obj.length; i++){
 				if(obj[i].tagName === "INPUT"){
