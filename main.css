@@ -1,0 +1,218 @@
+:root{
+    --main: #FD3;
+    --background: #0D0D0D;
+    --font-color-white:#FFFFFF;
+    --gray-400:#98A2B3;
+    --gray1:#333333;
+    --gray4:#BDBDBD;
+    --gray5:#E0E0E0;
+    --gray6:#F2F2F2;
+    --gray-100:#F2F4F7;
+    --gray-400:#98A2B3;
+    --gray-500:#667085;
+    --secondary-01:#FFBC99;
+    --secondary-02:#CABDFF;
+    --secondary-04:#B5E4CA;
+    --success-200:#A6F4C5;
+    --padding: 80px;
+    --gap: 35px;
+}
+*{
+    font-family: Manrope;
+    /* scale: 0.8; */
+}
+/* DEFAULT */
+/* --------------------------------------------- */
+    body{
+        background: var(--background);
+        padding: 0;
+    }
+
+    header, section, footer{
+        padding: var(--padding);
+    }
+    section{
+        width: 100%;
+        /* background-color: var(--gray1); */
+    }
+    p{
+        color: var(--gray-400, #98A2B3);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 111.72%; /* 26.813px */
+    letter-spacing: -0.96px;
+    }
+    h1{
+        color: var(--white, #FFF);
+        font-size: 96px;
+        font-weight: 500;
+        line-height: 103.816%; /* 99.663px */
+        letter-spacing: -3.84px;
+        margin: 0;
+        padding: 0;
+    }
+    h2{
+        color: var(--Gray-6, #F2F2F2);
+        text-align: center;
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 116.865%; /* 74.794px */
+        letter-spacing: -1.92px;
+    }
+/* HEADER */
+/* --------------------------------------------- */
+    header{
+        color: var(--font-color-white);
+        display:flex;
+        height: 48px;
+        justify-content: space-between;
+        align-items: center;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        padding-block: 8px;
+        z-index: 1;
+        transition: background-color 0.3s ease;
+    }
+    header ul{
+        display: flex;
+        gap: 12px;
+        list-style-type: none; 
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px; /* 142.857% */
+    }
+    header li{
+        cursor: pointer;
+    }
+    header a {
+        color: inherit;
+        text-decoration: inherit; 
+    }
+/*  MISC */
+/* --------------------------------------------- */
+    .content{
+        width: 100vw;
+        height: 5085px;
+    }
+/*  HERO */
+/* --------------------------------------------- */
+.section-hero{
+    display: flex;
+    width: 1440px;
+    height: 900px;
+    padding-top: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero-image-container{
+    width: 786px;
+    height: 771px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-image-illustration{
+    width: 526.819px;
+    height: 860.113px;
+    background: url("./img/character.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(-21.68deg);
+}
+.hero-info{
+    display: flex;
+    padding: 24px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 62px;
+    width: 513px;
+}
+/* LANG */
+/* --------------------------------------------- */
+    .section-languages{
+        display: flex;
+        width: 1440px;
+        padding: 85px 80px 33px 80px;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+/* INFO */
+/* --------------------------------------------- */
+.section-info{
+    display: flex;
+    width: 1440px;
+    padding: 85px 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+/*  */
+/* --------------------------------------------- */
+.container{
+    display: flex;
+    padding: 45px 45px 0px 45px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+.frame{
+    border-radius: 24px;
+    background: var(--gray-100, #F2F4F7);
+}
+.grid{
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 29px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.grid .frame{
+    display: flex;
+    width: 298px;
+    height: 142px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/*  */
+/* --------------------------------------------- */
+.button--learnmore{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.button--learnmore, .button--learnmore svg, .button--learnmore__arrow{
+    stroke:var(--background);
+    stroke-width:2;
+}
+.button--learnmore svg{
+    width: 48px;
+    height: 48px;
+    fill: none;
+}
+.button--learnmore svg circle{
+    transition: all 0.4s linear;
+    fill: var(--main);
+}
+.button--learnmore:hover svg circle{
+    fill: var(--color-purple);
+    stroke: var(--main);
+    transition: all 0.4s linear;
+}
+
+.button--learnmore:hover svg .button--learnmore__arrow{
+    stroke: var(--main);
+    transition: all 0.4s linear;
+}
