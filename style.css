@@ -6,21 +6,10 @@
     --grey-line: #737B7D;
     --color-purple: #8C30F5;
     --color-purple-100: #F1E4FF;
-
-    --default-black: #dfdfdf;
-    --default-white: #0e0e0e;
-    --text-gray-300: #bbbbbd;
-    --text-gray-900: #acacac;
-    --grey-line: #cecece;
-    --color-purple: #b169ff;
-    --color-purple-100: #7700ff;
 }
 ::selection{
-    color: var(--default-white);
-    background: var(--color-purple-100, var(--color-purple));
-}
-*{
-    color: var(--default-black);
+    color: var(--default-white, #FFF);
+    background: var(--color-purple-100, #F1E4FF);
 }
 button{
     background: transparent;
@@ -29,9 +18,8 @@ button{
     transition: all 0.2s ease;
 }
 body{
-    background-color: var(--default-white);
-    /* background: linear-gradient(187deg, var(--color-purple-100) 0%, var(--default-white) 15.21%, var(--default-white) 85%, var(--color-purple-100) 100%); */
-    background: var(--default-white);
+    background-color: rgb(28, 28, 28);
+    background: linear-gradient(187deg, #E0CDF9 0%, var(--default-white) 15.21%, var(--default-white) 85%, #E0CDF9 100%);
     font-family: Manrope, system-ui;
     margin: 0;
     overflow-x: hidden;
@@ -71,19 +59,15 @@ li{
     cursor: pointer;
 }
 a {
-    color: inherit;
-    text-decoration: inherit; 
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 h3{
     color: var(--text-gray-900, #18191F);
     font-size: 18px;
     line-height: 32px; /* 177.778% */
 }
-h2{
-    color: var(--color-purple-100);
-}
 h1{
-    color: var(--color-purple);
     font-size: 48px;
     font-weight: 800;
     line-height: 64px; /* 133.333% */
@@ -113,7 +97,7 @@ input[type="text"]{
 }
 input[type="text"]:focus{
     outline: none;
-    border-bottom: 2px solid var(--color-purple);
+    border-bottom: 2px solid var(--color-purple, #8C30F5);
 }
 form{
     display: flex;
@@ -124,12 +108,13 @@ form{
 }
 hr{
     width: 100%;
-      fill: var(--default-white);
+      fill: var(--default-white, #FFF);
       opacity: 0.2;
 }
 footer{
     height: 256px;
-    background: var(--default-black );
+    background: var(--default-black, #0B0D17);
+    color: var(--default-white, #FFF);
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -141,6 +126,7 @@ footer ul{
     padding: 0;
 }
 footer .container{
+    color: var(--text-gray-300, #D9DBE1);
     font-size: 14px;
     font-weight: 400;
     line-height: 24px; /* 171.429% */
@@ -181,7 +167,7 @@ footer .container{
     cursor: pointer;
 }
 .button--learnmore, .button--learnmore svg, .button--learnmore__arrow{
-    stroke:var(--default-black);
+    stroke:#18191F;
     stroke-width:2;
 }
 .button--learnmore svg{
@@ -225,7 +211,7 @@ footer .container{
     min-width: 200px;
     height: 200px;
     border-radius: 340px;
-    background: var(--default-white);
+    background: #f7f7f7;
     border: 73px solid var(--color-purple-100, #F1E4FF);
 
 }
@@ -269,8 +255,8 @@ footer #section-skill, .container-center{
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    background: var(--color-purple);
-    color: var(--default-white);
+    background: var(--color-purple, #8C30F5);
+    color: var(--default-white, #FFF);
 
     font-size: 20px;
     font-weight: 700;
@@ -279,8 +265,8 @@ footer #section-skill, .container-center{
 
 #section-contact button:hover{
     background-color: transparent;
-    border: 2px solid var(--color-purple);
-    color: var(--color-purple);
+    border: 2px solid var(--color-purple, #8C30F5);
+    color: var(--color-purple, #8C30F5);
 }
 
 .project-showcase{
@@ -290,7 +276,7 @@ footer #section-skill, .container-center{
 .icon{
     height: 64px;
     width: 64px;
-    background-color: var(--default-black);
+    background-color: var(--color-purple);
     fill: var(--default-white);
     border-radius: 50%;
     position: absolute;
@@ -304,14 +290,12 @@ footer #section-skill, .container-center{
     max-height: 42px;
 }
 .icon:nth-child(2n){
-    background-color: var(--color-purple);
-    fill: var(--default-black);
+    background-color: #dc95ff;
 }
 
 #mouse-track{
     position: absolute;
     transform: translate(-35%, 0%);
-    overflow: hidden;
     z-index: -1;
 }
 
@@ -369,14 +353,14 @@ footer #section-skill, .container-center{
 @media only screen and (max-width: 860px){
     /*Big smartphones [426px -> 600px]*/
 
-    
+
     header, section, footer {
       padding: 32px 32px;
     }
     header{
         padding-block: 8px;
     }
-    
+
     ul.navbar li{
         display: none;
       }
