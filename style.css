@@ -272,6 +272,7 @@ footer #section-skill, .container-center{
 .project-showcase{
     width: 60%;
     border-radius: 12px;
+    aspect-ratio: 16 / 9;
 }
 .icon{
     height: 64px;
@@ -439,6 +440,7 @@ footer #section-skill, .container-center{
     align-items: center;
     justify-content: center;
     font-weight: 1000;
+    
 }
 .carousel--dot{
     width: 8px;
