@@ -1,9 +1,9 @@
 :root{
     --main: #FD3;
-    --background: #1c1c1c;
+    --background: #0c0c0c;
     --font-color-white:#FFFFFF;
     --gray-400:#98A2B3;
-    --gray1:#333333;
+    --gray1:#1f1f1f;
     --gray4:#BDBDBD;
     --gray5:#E0E0E0;
     --gray6:#F2F2F2;
@@ -267,15 +267,6 @@ footer .container{
 }
 /*  */
 
-
-:root{
-    --color-primary: yellow;
-    --color-secondary: gray;
-    --color-text: white;
-    --color-text-secondary: lightgray; 
-    --color-background: #1c1c1c;
-  }
-
   .card{
     background-repeat: no-repeat;
     background-position: center;
@@ -308,7 +299,7 @@ footer .container{
     width: 32px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background-color: var(--color-primary);
+    background-color: var(--main);
     color: var(--color-background);
     display: flex;
     justify-content: center;
@@ -337,7 +328,7 @@ footer .container{
   }
   .label, .label-round, .button-more{
     border-radius: 8px;
-    background: var(--color-secondary);
+    background: var(--gray-500);
     padding: 8px;
   }
   .label-round{
@@ -349,25 +340,25 @@ footer .container{
     text-align: center;
   }
   .important{
-    background: var(--color-primary);
+    background: var(--main);
     color: var(--color-background);
   }
   .button-more{
     cursor: pointer;
     padding: 12px 14px;
     border-radius: 24px;
-    background: var(--color-primary);
+    background: var(--main);
     color: var(--color-background);
-    border-color: var(--color-primary);
+    border-color: var(--main);
     transition: 0.2s ease;
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--main);
     
   }
   .button-more:hover{
     scale: 1.05;
     border-width: 1px;
     background: transparent;
-    color: var(--color-primary);
+    color: var(--main);
   }
   .button-more:active{
     scale: 0.95
