@@ -31,7 +31,6 @@
     header, section, footer{
         padding: var(--padding);
         /* background-color: var(--gray1); */
-        /* width: 1440px; */
     }
     section{
         /* width: 100%; */
@@ -168,7 +167,7 @@
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    grid-gap: 32px;
 }
 .flex .frame{
     display: flex;
@@ -374,17 +373,44 @@ footer .container{
     scale: 0.95
   }
 
-.carousel .frame{
-    /* animation: scroll 5s linear 0s infinite; */
+.marquee .frame{
+    animation: marqueeAnimation 6s linear 2s infinite;
 }
 
-  /* ---------------------------------- */
-  @keyframes scroll {
+@keyframes marqueeAnimation {
     from {
-        transform: translate(0,0)
+      left: -25%;
     }
-
     to {
-       transform: translate(-48%,0);
+      left: 105%;
     }
-} 
+}
+.marquee{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 256px;
+    align-items: center;
+}
+.item{
+  animation: marqueeAnimation 6s linear 2s infinite;
+  color: var(--font-color-white);
+  width: 298px;
+  display: flex;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.item i{
+    font-size: 72px;
+    color: white;
+    text-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+    
+}
+.item-reverse{
+    animation-direction : reverse !important; 
+}
