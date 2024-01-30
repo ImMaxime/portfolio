@@ -1,8 +1,10 @@
 :root{
     --main: #FD3;
     --background: #0c0c0c;
-    --font-color-white:#FFFFFF;
+    --font-color:#FFFFFF;
     --gray-400:#98A2B3;
+    --white:#FFFFFF;
+    --black:#0c0c0c;
     --gray1:#1f1f1f;
     --gray4:#BDBDBD;
     --gray5:#E0E0E0;
@@ -25,21 +27,22 @@
     body{
         background: var(--background);
         padding: 0;
+        transition: 0.4s ease;
+
     }
 
     header, section, footer{
         padding: var(--padding);
     }
-
     p{
         color: var(--gray-400, #98A2B3);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 111.72%; /* 26.813px */
-    letter-spacing: -0.96px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 111.72%; /* 26.813px */
+        letter-spacing: -0.96px;
     }
     h1{
-        color: var(--white, #FFF);
+        color: var(--font-color);
         font-size: 96px;
         font-weight: 500;
         line-height: 103.816%; /* 99.663px */
@@ -48,7 +51,7 @@
         padding: 0;
     }
     h2{
-        color: var(--Gray-6, #F2F2F2);
+        color: var(--white);
         text-align: center;
         font-size: 64px;
         font-weight: 500;
@@ -58,7 +61,7 @@
 /* HEADER */
 /* --------------------------------------------- */
     header{
-        color: var(--font-color-white);
+        color: var(--font-color);
         display:flex;
         height: 48px;
         justify-content: space-between;
@@ -213,11 +216,16 @@
     stroke:var(--background);
     stroke-width:2;
 }
+
 .button--learnmore svg{
     width: 48px;
     height: 48px;
     fill: none;
 }
+.button--learnmore p{
+    color: var(--font-color);
+}
+
 .button--learnmore svg circle{
     transition: all 0.4s linear;
     fill: var(--main);
@@ -301,7 +309,7 @@ footer .container{
     align-items: center;
   }
   .text-area p{
-    color: var(--color-text-secondary);
+    color: var(--font-color);
   }
   .buttons-area, .labels, .more{
     display: flex;
@@ -315,7 +323,8 @@ footer .container{
   .label, .label-round, .button-more{
     border-radius: 8px;
     background: var(--gray-500);
-    padding: 8px;
+    padding: 8px;    
+    color: var(--font-color);
   }
   .label-round{
     border-radius: 50%;
@@ -362,12 +371,12 @@ footer .container{
     overflow: hidden;
     position: relative;
     width: 100%;
-    min-height: 256px;
+    min-height: 156px;
     align-items: center;
 }
 .marquee ul{
   animation: marqueeAnimation 6s linear 2s infinite;
-  color: var(--font-color-white);
+  color: var(--font-color);
   width: 298px;
   display: flex;
   position: absolute;
@@ -388,3 +397,4 @@ footer .container{
 .reverse{
     animation-direction : reverse !important; 
 }
+
