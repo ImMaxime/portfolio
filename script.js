@@ -24,31 +24,23 @@ function setMarquee(duration){
     let marquee = document.querySelectorAll(".marquee");
     for (let i = 0; i < marquee.length; i++){
         let elements = marquee[i].querySelectorAll("ul");
-        let endPosition = 0;
+        let endPosition = Array.from(elements).reduce((total, element) => total + element.offsetWidth, 0);
 
-        for (let j = 0; j < elements.length; j++) {
-            endPosition += elements[j].offsetWidth;
-        }
-        console.log(endPosition);
         for ( j = 0; j < elements.length; j++) {
             let e = elements[j];
-            let direction = (e.className.includes('reverse')) ? "reverse" : "normal";
-            let start = (e.className.includes('reverse')) ? -e.offsetWidth : -e.offsetWidth;
-            let val = (duration/elements.length) * j;
             e.animate([
-                // keyframes
-                { transform: `translateX(${start}px)` },
+                { transform: `translateX(${(e.className.includes('reverse')) ? -e.offsetWidth : -e.offsetWidth}px)` },
                 { transform: `translateX(${endPosition}px)` },
               ], {
-                // timing options
                 duration: duration*1000,
                 iterations: Infinity,
-                delay : -val*1000,
-                direction : direction
+                delay : -((duration/elements.length) * j)*1000,
+                direction : (e.className.includes('reverse')) ? "reverse" : "normal"
             });
-            console.log(e.getAnimations.pl);
         }
     }
+
+    
 }
 function drawText(container, text){
     text = text.split('').reverse();
