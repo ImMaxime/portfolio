@@ -38,7 +38,7 @@ function setMarquee(duration){
                     duration: duration*1000,
                     iterations: Infinity,
                     delay : -((duration/items.length) * j)*1000,
-                    direction : (e.className.includes('reverse')) ? "reverse" : "normal"
+                    direction : (e.className.includes('reverse')) ? "reverse" : "normal",
                 })
             );
         }
