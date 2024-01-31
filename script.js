@@ -21,23 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function setMarquee(duration){
-    let marquee = document.querySelectorAll(".marquee");
-    for (let i = 0; i < marquee.length; i++){
-        let elements = marquee[i].querySelectorAll("ul");
-        let endPosition = Array.from(elements).reduce((total, element) => total + element.offsetWidth, 0);
+    let marquees = document.querySelectorAll(".marquee");
+    for (let i = 0; i < marquees.length; i++){
+        let marquee = marquees[i];
+        let items = marquee.querySelectorAll("ul");
+        let endPosition = Array.from(items).reduce((total, e) => total + e.offsetWidth, 0);
+        let animations = [];
 
-        for ( j = 0; j < elements.length; j++) {
-            let e = elements[j];
-            e.animate([
-                { transform: `translateX(${(e.className.includes('reverse')) ? -e.offsetWidth : -e.offsetWidth}px)` },
-                { transform: `translateX(${endPosition}px)` },
-              ], {
-                duration: duration*1000,
-                iterations: Infinity,
-                delay : -((duration/elements.length) * j)*1000,
-                direction : (e.className.includes('reverse')) ? "reverse" : "normal"
-            });
+        for ( j = 0; j < items.length; j++) {
+            let e = items[j];
+            animations.push( 
+                e.animate([
+                     { transform: `translateX(${(e.className.includes('reverse')) ? -e.offsetWidth : -e.offsetWidth}px)` },
+                     { transform: `translateX(${endPosition}px)` },
+                    ], {
+                    duration: duration*1000,
+                    iterations: Infinity,
+                    delay : -((duration/items.length) * j)*1000,
+                    direction : (e.className.includes('reverse')) ? "reverse" : "normal"
+                })
+            );
         }
+        console.log(animations);
+        marquee.onmouseover = () => animations.forEach((e) => { e.pause()})
+        marquee.onmouseout = () => animations.forEach((e) => { e.play()})
     }
 
     
