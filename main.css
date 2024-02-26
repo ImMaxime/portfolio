@@ -109,12 +109,12 @@
     justify-content: center;
 }
 .hero-image-illustration{
-    width: 526.819px;
-    height: 860.113px;
-    background: url("./img/character.png");
+    width: 100%;
+    height: 100%;
+    background: url(./img/statue.png);
     background-size: cover;
+    background-position-x: center;
     background-repeat: no-repeat;
-    transform: rotate(-21.68deg);
 }
 .hero-info{
     display: flex;
