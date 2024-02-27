@@ -61,11 +61,10 @@
 /* HEADER */
 /* --------------------------------------------- */
     header{
-        color: var(--font-color);
         display:flex;
         height: 48px;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         position: -webkit-sticky;
         position: sticky;
         top: 0;
@@ -74,48 +73,71 @@
         transition: background-color 0.3s ease;
     }
     header ul{
-        display: flex;
-        gap: 12px;
         list-style-type: none; 
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px; /* 142.857% */
     }
-    header li{
+    header li, footer li{
         cursor: pointer;
     }
     header a {
         color: inherit;
         text-decoration: inherit; 
     }
+/*footer*/
+/* --------------------------------------------- */
+
+footer{
+    display: flex;
+    padding: 85px 80px 0px 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    
+}
+footer p{
+    font-size: 16px;
+}
+footer .container{
+    color: var(--text-gray-300, #D9DBE1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+footer ul{
+    display: flex;
+    gap: 12px;
+    list-style-type: none; 
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px; /* 142.857% */
+}
+footer li a{
+    display: flex;
+}
+footer li a svg{
+    fill: var(--background);
+}
 /*  MISC */
 /* --------------------------------------------- */
-    .content{
-        width: 100vw;
-    }
+.content{
+    width: 100vw;
+}
 /*  HERO */
 /* --------------------------------------------- */
 .section-hero{
     display: flex;
-    height: 900px;
     justify-content: space-between;
     align-items: center;
+    /* padding: 24px 0px; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 62px;
 }
-.hero-image-container{
-    width: 786px;
-    height: 771px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.hero-image-illustration{
-    width: 100%;
-    height: 100%;
-    background: url(./img/statue.png);
-    background-size: cover;
-    background-position-x: center;
-    background-repeat: no-repeat;
-}
+
 .hero-info{
     display: flex;
     padding: 24px 0px;
@@ -240,124 +262,94 @@
     stroke: var(--main);
     transition: all 0.4s linear;
 }
-/*footer*/
-/* --------------------------------------------- */
 
-footer{
-    display: flex;
-    padding: 85px 80px 0px 80px;
-    flex-direction: column;
-    align-items: center;
-    gap: 90px;
-    
+.card{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-radius: 12px;
+  padding: 0;
+  
 }
-footer ul{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px; /* 162.5% */
-    padding: 0;
+.card .content{
+  opacity: 0;
+  border-radius: 12px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s ease-in-out;
 }
-footer .container{
-    color: var(--text-gray-300, #D9DBE1);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px; /* 171.429% */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
+.card .content:hover{
+  opacity: 100%;
+  backdrop-filter: 
+    blur(12px)
+    brightness(40%)
+    grayscale(50%);
 }
-/*  */
-
-  .card{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    border-radius: 12px;
-    padding: 0;
-    
-  }
-  .card .content{
-    opacity: 0;
-    border-radius: 12px;
-    width: calc(100% - 32px);
-    height: calc(100% - 32px);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: 0.2s ease-in-out;
-  }
-  .card .content:hover{
-    opacity: 100%;
-    backdrop-filter: 
-      blur(12px)
-      brightness(40%)
-      grayscale(50%);
-  }
-  .icon{
-    width: 32px;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-color: var(--main);
-    color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .text-area p{
-    color: var(--font-color);
-  }
-  .buttons-area, .labels, .more{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .more{
-    gap: 4px;
-  }
-  .label, .label-round, .button-more{
-    border-radius: 8px;
-    background: var(--gray-500);
-    padding: 8px;    
-    color: var(--font-color);
-  }
-  .label-round{
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    width: 16px;
-    height: 16px;
-    font-size: 12px;
-    text-align: center;
-  }
-  .important{
-    background: var(--main);
-    color: var(--color-background);
-  }
-  .button-more{
-    cursor: pointer;
-    padding: 12px 14px;
-    border-radius: 24px;
-    background: var(--main);
-    color: var(--color-background);
-    border-color: var(--main);
-    transition: 0.2s ease;
-    border: 1px solid var(--main);
-    
-  }
-  .button-more:hover{
-    scale: 1.05;
-    border-width: 1px;
-    background: transparent;
-    color: var(--main);
-  }
-  .button-more:active{
-    scale: 0.95
-  }
+.icon{
+  width: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--main);
+  color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-area p{
+  color: var(--font-color);
+}
+.buttons-area, .labels, .more{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.more{
+  gap: 4px;
+}
+.label, .label-round, .button-more{
+  border-radius: 8px;
+  background: var(--gray-500);
+  padding: 8px;    
+  color: var(--font-color);
+}
+.label-round{
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  text-align: center;
+}
+.important{
+  background: var(--main);
+  color: var(--color-background);
+}
+.button-more{
+  cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 24px;
+  background: var(--main);
+  color: var(--color-background);
+  border-color: var(--main);
+  transition: 0.2s ease;
+  border: 1px solid var(--main);
+}
+.button-more:hover{
+  scale: 1.05;
+  border-width: 1px;
+  background: transparent;
+  color: var(--main);
+}
+.button-more:active{
+  scale: 0.95
+}
 
 @keyframes marqueeAnimation {
     from {

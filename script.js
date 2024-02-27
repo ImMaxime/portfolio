@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    drawText(document.querySelector('.glitch'), "Maxime\nLétourneau\nPelletier.");
+    drawText(document.getElementById('title'), "Maxime\nLétourneau Pelletier.");
     // Initial check
     handleScroll();
     setMarquee(12);
