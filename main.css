@@ -28,7 +28,6 @@
         background: var(--background);
         padding: 0;
         transition: 0.4s ease;
-
     }
 
     header, section, footer{
@@ -57,6 +56,9 @@
         font-weight: 500;
         line-height: 116.865%; /* 74.794px */
         letter-spacing: -1.92px;
+    }
+    form{
+        display: flex;
     }
 /* HEADER */
 /* --------------------------------------------- */
@@ -123,6 +125,10 @@ footer li a svg{
 }
 /*  MISC */
 /* --------------------------------------------- */
+.wrapper, header, footer{
+    max-width: 1200px;
+    margin: auto;
+}
 .content{
     width: 100vw;
 }
