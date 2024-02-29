@@ -1,7 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get the body element
-    const body = document.body;
 
+    var links = document.querySelectorAll('.navbar a');
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var targetId = this.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+            var targetOffset = targetElement.offsetTop;
+            var duration = 1500;
+            var easing = function(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t };
+            var start = window.pageYOffset;
+            var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+            function scroll() {
+                var now = 'now' in window.performance ? performance.now() : new Date().getTime();
+                var time = Math.min(1, ((now - startTime) / duration));
+                var timeFunction = easing(time);
+                window.scrollTo(0, Math.ceil((timeFunction * (targetOffset - start)) + start));
+                if (time < 1) requestAnimationFrame(scroll);
+            }
+            requestAnimationFrame(scroll);
+        });
+    });
+
+    var navLinks = document.querySelectorAll('.navbar a');
+    var navbarOffset = document.get;
+    window.addEventListener('scroll', function() {
+        var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+        navLinks.forEach(function(navLink) {
+            var targetId = navLink.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+            var headerOffset = (targetId == "section-hero") ? document.querySelector('header').offsetHeight : "";
+            if (targetElement.offsetTop - headerOffset <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
+                navLink.parentElement.classList.add('active');
+            } else {
+                navLink.parentElement.classList.remove('active');
+            }
+        });
+    });
+
+
+    const body = document.body;
+ 
     // Scroll event handler function
     const handleScroll = () => {
         let root = document.querySelector(":root")
@@ -60,7 +101,7 @@ function setMarquee(duration) {
         marquee.onmouseover = () => animations.forEach((e) => { e.pause()});
         marquee.onmouseout = () => animations.forEach((e) => { e.play()});
     }
-}
+} 
 
 // Function to draw text in a container
 function drawText(container, text) {
@@ -81,100 +122,16 @@ function drawText(container, text) {
     }
 }
 
-// Get the canvas and context
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext('2d');
+function sendMail(){
+    let name = document.getElementById('contact_name').value;
+    let reason = document.getElementById('contact_reason').value;
+    let phone = document.getElementById('contact_phone').value;
+    let message = document.getElementById('contact_message').value;
+    reason  ||= "Portfolio Contact Form";
+    phone   &&= "Phone: "+phone+"\n";
+    message &&= "\n" + message;
+    if(name) message += "\n" + name
 
-// Initialize variables for the intro motion
-let mouseMoved = false;
-const pointer = {
-    x: .5 * window.innerWidth,
-    y: .5 * window.innerHeight,
-};
-const params = {
-    pointsNumber: 40,
-    widthFactor: .3,
-    mouseThreshold: .6,
-    spring: .4,
-    friction: .5,
-};
-
-// Initialize the trail array
-const trail = new Array(params.pointsNumber);
-for (let i = 0; i < params.pointsNumber; i++) {
-    trail[i] = {
-        x: pointer.x,
-        y: pointer.y,
-        dx: 0,
-        dy: 0,
-    };
-}
-
-// Add event listeners for mouse and touch events
-window.addEventListener("click", e => {
-    updateMousePosition(e.pageX, e.pageY);
-});
-window.addEventListener("mousemove", e => {
-    mouseMoved = true;
-    updateMousePosition(e.pageX, e.pageY);
-});
-window.addEventListener("touchmove", e => {
-    mouseMoved = true;
-    updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
-});
-
-// Update the mouse position
-function updateMousePosition(eX, eY) {
-    pointer.x = eX;
-    pointer.y = eY;
-}
-
-// Set up the canvas and start the animation
-setupCanvas();
-update(0);
-window.addEventListener("resize", setupCanvas);
-
-// Animation function
-function update(t) {
-    // Update the pointer position based on mouse movement
-    if (!mouseMoved) {
-        pointer.x = (.5 + .3 * Math.cos(.002 * t) * (Math.sin(.005 * t))) * window.innerWidth;
-        pointer.y = (.5 + .2 * (Math.cos(.005 * t)) + .1 * Math.cos(.01 * t)) * window.innerHeight;
-    }
-
-    // Clear the canvas and draw the trail
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    trail.forEach((p, pIdx) => {
-        const prev = pIdx === 0 ? pointer : trail[pIdx - 1];
-        const spring = pIdx === 0 ? .4 * params.spring : params.spring;
-        p.dx += (prev.x - p.x) * spring;
-        p.dy += (prev.y - p.y) * spring;
-        p.dx *= params.friction;
-        p.dy *= params.friction;
-        p.x += p.dx;
-        p.y += p.dy;
-    });
-
-    // Draw the trail on the canvas
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(trail[0].x, trail[0].y);
-    for (let i = 1; i < trail.length - 1; i++) {
-        const xc = .5 * (trail[i].x + trail[i + 1].x);
-        const yc = .5 * (trail[i].y + trail[i + 1].y);
-        ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
-        ctx.lineWidth = params.widthFactor * (params.pointsNumber - i);
-        ctx.stroke();
-    }
-    ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
-    ctx.stroke();
-
-    // Request the next animation frame
-    window.requestAnimationFrame(update);
-}
-
-// Set up the canvas with the correct dimensions
-function setupCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let href = `mailto:maxlp12@gmail.com?subject=${reason}&body=${message}`;
+    window.open(href);
 }

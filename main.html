@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="main.css">
   </head>
 <body>
-  <canvas style="width:0"></canvas>
   <header>
     <a href="#section-hero">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.0" height="52.000000pt" viewBox="80 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -21,15 +20,17 @@
     </a>
 
     <ul class="navbar">
-      <li><a id="navbar_home" href="#section-hero"><img src="img/icon_home.svg" alt="home"></a> </li>
-      <li><a id="navbar_experience" href="#section-languages"><img src="img/icon_school.svg" alt="knowledge"></a></li>
-      <li><a id="navbar_skill" href="#section-info"><img src="img/icon_collections bookmark.svg" alt="explore"></a></li>
-      <li><a id="navbar_contact" href="#section-contact"><img src="img/icon_outgoing_mail.svg" alt="contact"></a></li>
+      <li style="mask: url(img/icon_home.svg);"><a id="navbar_home" href="#section-hero"></a> </li>
+      <li style="mask: url(img/icon_school.svg);"><a id="navbar_experience" href="#section-languages"></a></li>
+      <li style="mask: url(img/icon_bookmark.svg);"><a id="navbar_skill" href="#section-info"></a></li>
+      <li style="mask: url(img/icon_outgoing_mail.svg);"><a id="navbar_contact" href="#section-contact"></a></li>
       <!-- <li onclick="switchLanguage()" id="language_button">EN</li> -->
     </ul>
   </header>
     <article class="wrapper">
       <!--  -->
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.54/build/spline-viewer.js"></script>
+      <spline-viewer url="https://prod.spline.design/e2kl8tIt00OdWZYL/scene.splinecode" style="position: absolute; left: 0; top: -124px; z-index: -1;"></spline-viewer>
       <section id="section-hero" id="section-hero">
         <div class="text" style="text-align: center;">
           <h1 id="title" style="height: 200px;"></h1>
@@ -241,12 +242,20 @@
         <div class="container frame">
           <p id="contact_description">Need an experienced and skilled hand with custom IT projects?<br> Fill out the form to get a free consultation.</p>
           <form id="contact--form" action="">
-            <input type="text" name="name" placeholder="Name*" id="contact_name">
-            <input type="text" name="reason" placeholder="Reason" id="contact_reason">
-            <input type="text" name="contact" placeholder="Contact Phone" id="contact_phone">
-            <input type="text" name="message" placeholder="Message" id="contact_message">
+            <div class="form-group">
+              <div class="input-container">
+                <input type="text" name="name" placeholder="Name" id="contact_name">
+              </div>
+              <div class="input-container">
+                <input type="text" name="reason" placeholder="Reason" id="contact_reason">
+              </div>
+              <div class="input-container">
+                <input type="text" name="contact" placeholder="Contact Phone" id="contact_phone">
+              </div>
+            </div>
+            <textarea name="message" id="contact_message" cols="30" rows="10" placeholder="What are you looking for?"></textarea>
           </form>
-          <button onclick="sendMail()">Send Email</button>
+          <button class="button-more"onclick="sendMail()">Send Email</button>
           <br>
         </div>
       </section>
@@ -255,7 +264,7 @@
     <footer>
       <div class="container">
         <p>© 2023 Maxime Létourneau Pelletier. All rights reserved</p>
-        <ul class="navbar">
+        <ul>
           <li class="icon">
             <a target="_blank" href="https://www.facebook.com/maxime.letourneaupelletier/">
               <svg height="1em" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
