@@ -31,12 +31,6 @@ body{
     margin: 0;
     transition: var(--transition)
 }
-header, footer, .container{
-    padding: var(--padding);
-}
-section{
-    padding: var(--padding) 0;
-}
 p{
     color: var(--gray-400, #98A2B3);
     font-size: 24px;
@@ -104,7 +98,7 @@ header a {
 
 footer{
     display: flex;
-    padding: 85px 80px 0px 80px;
+    padding: 85px 80px;
     flex-direction: column;
     align-items: center;
     gap: 90px;
@@ -118,6 +112,7 @@ footer .container{
     font-size: 14px;
     font-weight: 400;
     line-height: 24px; /* 171.429% */
+    padding: 0;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -164,42 +159,7 @@ footer li a svg{
 }
 /*  HERO */
 /* --------------------------------------------- */
-.section-hero{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* padding: 24px 0px; */
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 62px;
-}
 
-.hero-info{
-    display: flex;
-    padding: 24px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 62px;
-    width: 513px;
-}
-/* LANG */
-/* --------------------------------------------- */
-.section-languages{
-    display: flex;
-    padding: 85px 80px 33px 80px;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-}
-/* INFO */
-/* --------------------------------------------- */
-.section-info{
-    display: flex;
-    padding: 85px 80px;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-}
 /*  */
 /* --------------------------------------------- */
 .container{
@@ -237,7 +197,6 @@ footer li a svg{
     height: 100%;
 }
 .frame img{
-    border-radius: 12px;
     opacity: 1;
     width: inherit;
     height: inherit;
@@ -250,7 +209,6 @@ footer li a svg{
 .frame{
     position: relative;
     color: var(--color-text);
-    border-radius: 10px;
     box-shadow: 6px 6px 16px 0 #00000082, -6px -6px 16px   0 #ffffff0d;
     min-height: 142px;
 }
@@ -377,13 +335,11 @@ textarea{
   background-size: cover;
   background-color: var(--color-background);
   color: var(--color-text);
-  border-radius: 12px;
   padding: 0;
   
 }
 .card .content{
   opacity: 0;
-  border-radius: 12px;
   width: calc(100% - 32px);
   height: calc(100% - 32px);
   padding: 16px;
@@ -442,7 +398,6 @@ textarea{
 
     color: var(--background);
     background: var(--font-color);
-    border-radius: 10px;
     width: 298px;
     min-height: 142px;
     display: flex;
