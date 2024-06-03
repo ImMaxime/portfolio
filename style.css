@@ -439,6 +439,7 @@ footer #section-skill, .container-center{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 16px;
     font-weight: 1000;
     
 }
@@ -455,3 +456,4 @@ footer #section-skill, .container-center{
     background-color: var(--color-purple);
     scale:1.1;
 }
+
