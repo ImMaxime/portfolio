@@ -1,11 +1,13 @@
 .about-section {
     padding: 80px 0;
+    background-color: #f7f7f7;
   }
   
   .about-container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
+    color: var(--lt-color-gray-900);
   }
   
   .about-grid {
@@ -34,7 +36,6 @@
   
   .skills-section {
     padding: 60px 0;
-    background-color: #f7f7f7;
   }
   
   .skills-container {
@@ -83,6 +84,7 @@
   
   .experience-section {
     padding: 80px 0;
+    background-color: #f7f7f7;
   }
   
   .experience-container {
