@@ -205,7 +205,7 @@
 .icon {
   color: #000;
   background-color: #e5660b;
-  background-image: url('../images/icon_bookmark.svg');
+  background-image: url('./images/icon_bookmark.svg');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 28px 28px;

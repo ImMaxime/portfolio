@@ -1,198 +1,680 @@
+:root {
+  --primary-color: #4568DC;
+  --accent-color: #b06ab3; 
+  --dark-color: #0A0A0A; /* Near black */
+  --light-color: #E2E8F0; /* Light gray for text on dark backgrounds */
+  --medium-color: #4A5568; /* Medium shade for elements */
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+/* About Section */
 .about-section {
-    padding: 80px 0;
-    background-color: #f7f7f7;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  color: var(--dark-color);
+}
+
+/* Decorative elements */
+.shape {
+  position: absolute;
+  opacity: 0.07;
+  z-index: 1;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 53% 47% 52% 48% / 36% 41% 59% 64%;
+  background-color: var(--primary-color);
+  top: -100px;
+  left: -150px;
+  animation: float 15s ease-in-out infinite;
+  opacity: 0.05;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  background-color: var(--accent-color);
+  bottom: -50px;
+  right: -100px;
+  animation: float 12s ease-in-out infinite reverse;
+  opacity: 0.05;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, 15px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Modified for scroll animation */
+.image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(20px);
+  opacity: 0;
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.image-container.slide-up {
+  animation: slide-up 0.8s ease forwards;
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: all var(--transition-speed) ease;
+}
+
+.image-container:hover .about-image {
+  transform: scale(1.03);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform var(--transition-speed) ease;
+}
+
+.image-container:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.image-caption {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Modified for scroll animation */
+.about-content {
+  transform: translateY(20px);
+  opacity: 0;
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.about-content.slide-up {
+  animation: slide-up 0.8s ease forwards;
+}
+
+@keyframes slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .about-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-    color: var(--lt-color-gray-900);
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  color: var(--soft-black);
+}
+
+.about-content h1::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  left: 0;
+  bottom: -10px;
+  border-radius: 2px;
+}
+
+/* Modified for scroll animation */
+.about-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Animation removed, will be triggered by parent */
+  color: var(--soft-black);
+}
+
+/* Animation triggers when parent gets slide-up class */
+.about-content.slide-up p:nth-child(2) { animation: fade-in 0.5s ease forwards 0.2s; }
+.about-content.slide-up p:nth-child(3) { animation: fade-in 0.5s ease forwards 0.4s; }
+.about-content.slide-up p:nth-child(4) { animation: fade-in 0.5s ease forwards 0.6s; }
+.about-content.slide-up p:nth-child(5) { animation: fade-in 0.5s ease forwards 0.8s; }
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+.highlight {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.tech-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--light-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-speed) ease;
+}
+
+.tech-tag:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+}
+
+/* Skills Section */
+.skills-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #000000 0%, #0D0D0D 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: var(--light-color);
+  position: relative;
+  z-index: 2;
+}
+
+.shape-3 {
+  width: 350px;
+  height: 350px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background-color: var(--primary-color);
+  top: -100px;
+  right: -150px;
+  animation: float 18s ease-in-out infinite;
+}
+
+.shape-4 {
+  width: 250px;
+  height: 250px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  background-color: var(--accent-color);
+  bottom: -80px;
+  left: -100px;
+  animation: float 15s ease-in-out infinite alternate;
+}
+
+/* Modified for scroll animation */
+.skills-heading {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.skills-heading.fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+.skills-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  color: var(--light-color);
+}
+
+.skills-heading h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+/* Modified for scroll animation */
+.skill-category {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.skill-category.fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+/* Sequential animations with delayed order */
+.skills-grid.animate .skill-category:nth-child(1) { animation-delay: 0.1s; }
+.skills-grid.animate .skill-category:nth-child(2) { animation-delay: 0.3s; }
+.skills-grid.animate .skill-category:nth-child(3) { animation-delay: 0.5s; }
+.skills-grid.animate .skill-category:nth-child(4) { animation-delay: 0.7s; }
+
+.skill-category h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  color: var(--light-color);
+}
+
+.skill-category h3::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: var(--accent-color);
+  left: 0;
+  bottom: -8px;
+  border-radius: 2px;
+}
+
+.skill-item {
+  margin-bottom: 22px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.skill-percentage {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.skill-bar-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Modified for scroll animation */
+.skill-bar {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  width: 0;
+  position: relative;
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.skill-item.animate .skill-bar {
+  animation: skill-progress 1.5s ease forwards;
+}
+
+@keyframes skill-progress {
+  to { width: var(--skill-width); }
+}
+
+.skill-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0.3;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Tooltip styles */
+.skill-tooltip {
+  position: absolute;
+  top: -45px;
+  left: var(--skill-width);
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.skill-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--accent-color) transparent transparent transparent;
+}
+
+.skill-bar-container:hover .skill-tooltip {
+  opacity: 1;
+}
+
+/* Experience Section */
+.experience-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: var(--dark-color);
+  position: relative;
+  z-index: 2;
+}
+
+/* Modified for scroll animation */
+.experience-heading {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.experience-heading.fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+.experience-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  color: var(--dark-color);
+}
+
+.experience-heading h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #e2e8f0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+/* Modified for scroll animation */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: calc(50% - 40px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Animation removed, will be added by JS */
+}
+
+/* Animation class that gets added when element is visible */
+.timeline-item.fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+/* Sequential animations with delayed order */
+.timeline.animate .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline.animate .timeline-item:nth-child(2) { animation-delay: 0.3s; }
+.timeline.animate .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+.timeline.animate .timeline-item:nth-child(4) { animation-delay: 0.7s; }
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 55%;
+}
+
+.timeline-content {
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+  opacity: 0.8;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(49, 130, 206, 0.5);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px;
+}
+
+.timeline-year {
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.timeline-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+}
+
+.timeline-content p {
+  color: #2D3748;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   
-  .about-image {
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
+  .about-section {
+    padding: 60px 0;
   }
   
   .about-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 2rem;
   }
   
-  .about-content p {
-    margin-bottom: 20px;
-    font-size: 16px;
+  .shape-1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .shape-2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
   
   .skills-section {
     padding: 60px 0;
   }
   
-  .skills-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
+  .skills-heading h2 {
+    font-size: 2rem;
   }
   
-  .skills-heading {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  .skill-category {
-    margin-bottom: 30px;
-  }
-  
-  .skill-category h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-  
-  .skill-bar {
-    height: 8px;
-    margin-bottom: 20px;
-    background: #eee;
-    border-radius: 4px;
-    position: relative;
-  }
-  
-  .skill-level {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border-radius: 4px;
-    background-color: #3182CE;
-  }
-  
-  .experience-section {
-    padding: 80px 0;
-    background-color: #f7f7f7;
-  }
-  
-  .experience-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .experience-heading {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+  .shape-3, .shape-4 {
+    width: 200px;
+    height: 200px;
   }
   
   .timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: #ddd;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
+    left: 40px;
   }
-  
+
   .timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: calc(50% - 40px);
-    box-sizing: border-box;
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
   }
-  
-  .timeline-item:nth-child(odd) {
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
     left: 0;
   }
-  
-  .timeline-item:nth-child(even) {
-    left: 50%;
-  }
-  
-  .timeline-content {
-    padding: 20px;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .timeline-dot {
-    width: 16px;
-    height: 16px;
-    background-color: #3182CE;
-    border-radius: 50%;
-    position: absolute;
-    top: 20px;
-    z-index: 1;
-  }
-  
-  .timeline-item:nth-child(odd) .timeline-dot {
-    right: -8px;
-  }
-  
+
+  .timeline-item:nth-child(odd) .timeline-dot,
   .timeline-item:nth-child(even) .timeline-dot {
-    left: -8px;
+    left: 32px;
   }
-  
-  .timeline-year {
-    font-weight: 700;
-    color: #3182CE;
-    margin-bottom: 5px;
-  }
-  
-  .timeline-title {
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  
-  @media (max-width: 767px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .timeline::after {
-      left: 40px;
-    }
-    
-    .timeline-item {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 20px;
-    }
-    
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-      left: 0;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
-      left: 32px;
-    }
-  }
+}
