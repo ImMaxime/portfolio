@@ -1,0 +1,45 @@
+/* 
+ * DEFAULT - Blue Theme 
+ * Main color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #2563eb;        /* Bold blue */
+  --primary-dark: #1d4ed8;   /* Dark blue */
+  --primary-light: #3b82f6;  /* Light blue */
+  
+  /* Accent */
+  --accent: #0ea5e9;         /* Sky blue */
+  --accent-light: #38bdf8;   /* Light sky blue */
+  --accent-dark: #0284c7;    /* Dark sky blue */
+  
+  /* Neutrals */
+  --dark: #0f172a;           /* Very dark blue-gray */
+  --medium-dark: #1e293b;    /* Dark blue-gray */
+  --medium: #334155;         /* Medium blue-gray */
+  --medium-light: #64748b;   /* Light blue-gray */
+  --light: #f1f5f9;          /* Very light blue-gray */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: var(--dark);
+  --bg-main: var(--dark);
+  --bg-section-dark: linear-gradient(135deg, var(--dark) 0%, var(--medium-dark) 100%);
+  --bg-section-darker: linear-gradient(135deg, #080f1c 0%, var(--dark) 100%);
+  --bg-section-light: var(--white);
+  --bg-card: var(--medium-dark);
+  --bg-footer: var(--dark);
+  --bg-header: rgba(15, 23, 42, 0.85);
+  --bg-header-scrolled: var(--dark);
+  
+  /* Component-specific */
+  --tag-bg: rgba(14, 165, 233, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(14, 165, 233, 0.5);
+}

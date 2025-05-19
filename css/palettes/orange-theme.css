@@ -1,0 +1,45 @@
+/* 
+ * Sunset Orange Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #ea580c;        /* Bold orange */
+  --primary-dark: #c2410c;   /* Dark orange */
+  --primary-light: #fb923c;  /* Light orange */
+  
+  /* Accent */
+  --accent: #e11d48;         /* Red */
+  --accent-light: #f43f5e;   /* Light red */
+  --accent-dark: #be123c;    /* Dark red */
+  
+  /* Neutrals */
+  --dark: #18181b;           /* Very dark gray */
+  --medium-dark: #27272a;    /* Dark gray */
+  --medium: #3f3f46;         /* Medium gray */
+  --medium-light: #71717a;   /* Light gray */
+  --light: #faf5f1;          /* Very light orange-tinted gray */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #2a1506;
+  --bg-main: #2a1506;
+  --bg-section-dark: linear-gradient(135deg, #2a1506 0%, #3d1e09 100%);
+  --bg-section-darker: linear-gradient(135deg, #1c0f04 0%, #2a1506 100%);
+  --bg-section-light: var(--white);
+  --bg-card: #3d1e09;
+  --bg-footer: #2a1506;
+  --bg-header: rgba(42, 21, 6, 0.85);
+  --bg-header-scrolled: #2a1506;
+  
+  /* Component-specific */
+  --tag-bg: rgba(225, 29, 72, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(225, 29, 72, 0.5);
+}

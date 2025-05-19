@@ -1,0 +1,45 @@
+/* 
+ * Monochrome Dark Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #4b5563;        /* Medium gray */
+  --primary-dark: #374151;   /* Dark gray */
+  --primary-light: #6b7280;  /* Light gray */
+  
+  /* Accent */
+  --accent: #8b5cf6;         /* Purple */
+  --accent-light: #a78bfa;   /* Light purple */
+  --accent-dark: #7c3aed;    /* Dark purple */
+  
+  /* Neutrals */
+  --dark: #111827;           /* Very dark gray */
+  --medium-dark: #1f2937;    /* Dark gray */
+  --medium: #374151;         /* Medium gray */
+  --medium-light: #6b7280;   /* Light gray */
+  --light: #f3f4f6;          /* Very light gray */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #121212;
+  --bg-main: #121212;
+  --bg-section-dark: linear-gradient(135deg, #121212 0%, #1f1f1f 100%);
+  --bg-section-darker: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
+  --bg-section-light: var(--white);
+  --bg-card: #1f1f1f;
+  --bg-footer: #121212;
+  --bg-header: rgba(18, 18, 18, 0.85);
+  --bg-header-scrolled: #121212;
+  
+  /* Component-specific */
+  --tag-bg: rgba(139, 92, 246, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(139, 92, 246, 0.5);
+}

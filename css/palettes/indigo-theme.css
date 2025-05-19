@@ -1,0 +1,45 @@
+/* 
+ * Vibrant Indigo Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #4f46e5;        /* Bold indigo */
+  --primary-dark: #4338ca;   /* Dark indigo */
+  --primary-light: #6366f1;  /* Light indigo */
+  
+  /* Accent */
+  --accent: #8b5cf6;         /* Purple */
+  --accent-light: #a78bfa;   /* Light purple */
+  --accent-dark: #7c3aed;    /* Dark purple */
+  
+  /* Neutrals */
+  --dark: #0f172a;           /* Very dark blue-gray */
+  --medium-dark: #1e293b;    /* Dark blue-gray */
+  --medium: #334155;         /* Medium blue-gray */
+  --medium-light: #64748b;   /* Light blue-gray */
+  --light: #f5f3ff;          /* Very light purple-tinted */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #141455;
+  --bg-main: #141455;
+  --bg-section-dark: linear-gradient(135deg, #141455 0%, #1e1c7a 100%);
+  --bg-section-darker: linear-gradient(135deg, #0c0c38 0%, #141455 100%);
+  --bg-section-light: var(--white);
+  --bg-card: #1e1c7a;
+  --bg-footer: #141455;
+  --bg-header: rgba(20, 20, 85, 0.85);
+  --bg-header-scrolled: #141455;
+  
+  /* Component-specific */
+  --tag-bg: rgba(79, 70, 229, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(79, 70, 229, 0.5);
+}

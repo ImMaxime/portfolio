@@ -1,0 +1,45 @@
+/* 
+ * Light Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #3b82f6;        /* Bold blue */
+  --primary-dark: #2563eb;   /* Dark blue */
+  --primary-light: #60a5fa;  /* Light blue */
+  
+  /* Accent */
+  --accent: #f43f5e;         /* Red */
+  --accent-light: #fb7185;   /* Light red */
+  --accent-dark: #e11d48;    /* Dark red */
+  
+  /* Neutrals - Light Mode */
+  --dark: #0f172a;           /* Very dark blue-gray (for text) */
+  --medium-dark: #1e293b;    /* Dark blue-gray */
+  --medium: #334155;         /* Medium blue-gray */
+  --medium-light: #64748b;   /* Light blue-gray */
+  --light: #0f172a;          /* Dark (now for text) */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #f1f5f9;
+  --bg-main: #ffffff;
+  --bg-section-dark: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --bg-section-darker: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  --bg-section-light: #ffffff;
+  --bg-card: #f8fafc;
+  --bg-footer: #1e293b;  /* Keep footer dark for contrast */
+  --bg-header: rgba(255, 255, 255, 0.85);
+  --bg-header-scrolled: #ffffff;
+  
+  /* Component-specific */
+  --tag-bg: rgba(59, 130, 246, 0.15);
+  --tag-color: var(--primary-dark);
+  --timeline-glow: rgba(59, 130, 246, 0.5);
+}

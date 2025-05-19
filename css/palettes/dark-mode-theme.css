@@ -1,0 +1,45 @@
+/* 
+ * Dark Mode Theme 
+ * Color scheme CSS variables (inverted color scheme)
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #3b82f6;        /* Bold blue */
+  --primary-dark: #2563eb;   /* Dark blue */
+  --primary-light: #60a5fa;  /* Light blue */
+  
+  /* Accent */
+  --accent: #f43f5e;         /* Red */
+  --accent-light: #fb7185;   /* Light red */
+  --accent-dark: #e11d48;    /* Dark red */
+  
+  /* Neutrals - Dark Mode Inverted */
+  --dark: #f1f5f9;           /* Now light (for text) */
+  --medium-dark: #e2e8f0;    /* Now lighter */
+  --medium: #94a3b8;         /* Medium */
+  --medium-light: #475569;   /* Now darker */
+  --light: #1e293b;          /* Now dark (for backgrounds) */
+  --white: #0f172a;          /* Now darkest (for main bg) */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #0f172a;
+  --bg-main: #0f172a;
+  --bg-section-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --bg-section-darker: linear-gradient(135deg, #0a101c 0%, #0f172a 100%);
+  --bg-section-light: #1e293b;  /* Dark mode - light sections are still dark */
+  --bg-card: #1e293b;
+  --bg-footer: #0f172a;
+  --bg-header: rgba(15, 23, 42, 0.85);
+  --bg-header-scrolled: #0f172a;
+  
+  /* Component-specific */
+  --tag-bg: rgba(59, 130, 246, 0.15);
+  --tag-color: var(--primary-light);
+  --timeline-glow: rgba(59, 130, 246, 0.5);
+}

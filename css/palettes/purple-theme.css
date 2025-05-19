@@ -1,0 +1,45 @@
+/* 
+ * Deep Purple Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #7c3aed;        /* Bold purple */
+  --primary-dark: #6d28d9;   /* Dark purple */
+  --primary-light: #8b5cf6;  /* Light purple */
+  
+  /* Accent */
+  --accent: #ec4899;         /* Pink */
+  --accent-light: #f472b6;   /* Light pink */
+  --accent-dark: #db2777;    /* Dark pink */
+  
+  /* Neutrals */
+  --dark: #0f172a;           /* Very dark blue-gray */
+  --medium-dark: #1e293b;    /* Dark blue-gray */
+  --medium: #334155;         /* Medium blue-gray */
+  --medium-light: #64748b;   /* Light blue-gray */
+  --light: #f8f7fa;          /* Very light purple-tinted gray */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #100b20;
+  --bg-main: #100b20;
+  --bg-section-dark: linear-gradient(135deg, #100b20 0%, #1d1132 100%);
+  --bg-section-darker: linear-gradient(135deg, #0a071a 0%, #100b20 100%);
+  --bg-section-light: var(--white);
+  --bg-card: #1d1132;
+  --bg-footer: #100b20;
+  --bg-header: rgba(16, 11, 32, 0.85);
+  --bg-header-scrolled: #100b20;
+  
+  /* Component-specific */
+  --tag-bg: rgba(236, 72, 153, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(236, 72, 153, 0.5);
+}

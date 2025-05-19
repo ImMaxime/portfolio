@@ -1,0 +1,45 @@
+/* 
+ * Nord Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #5e81ac;        /* Nord blue */
+  --primary-dark: #4c566a;   /* Nord dark blue */
+  --primary-light: #81a1c1;  /* Nord light blue */
+  
+  /* Accent */
+  --accent: #88c0d0;         /* Nord cyan */
+  --accent-light: #8fbcbb;   /* Nord light cyan */
+  --accent-dark: #5e81ac;    /* Nord dark cyan */
+  
+  /* Neutrals */
+  --dark: #2e3440;           /* Nord dark gray */
+  --medium-dark: #3b4252;    /* Nord darker gray */
+  --medium: #434c5e;         /* Nord medium gray */
+  --medium-light: #4c566a;   /* Nord light gray */
+  --light: #eceff4;          /* Nord light */
+  --white: #e5e9f0;          /* Nord white */
+  
+  /* Status */
+  --success: #a3be8c;        /* Nord green */
+  --warning: #ebcb8b;        /* Nord yellow */
+  --danger: #bf616a;         /* Nord red */
+  
+  /* Backgrounds */
+  --bg-hero: #2e3440;
+  --bg-main: #2e3440;
+  --bg-section-dark: linear-gradient(135deg, #2e3440 0%, #3b4252 100%);
+  --bg-section-darker: linear-gradient(135deg, #272c36 0%, #2e3440 100%);
+  --bg-section-light: #eceff4;
+  --bg-card: #3b4252;
+  --bg-footer: #2e3440;
+  --bg-header: rgba(46, 52, 64, 0.85);
+  --bg-header-scrolled: #2e3440;
+  
+  /* Component-specific */
+  --tag-bg: rgba(136, 192, 208, 0.15);
+  --tag-color: var(--accent);
+  --timeline-glow: rgba(136, 192, 208, 0.5);
+}

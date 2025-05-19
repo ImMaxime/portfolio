@@ -1,0 +1,45 @@
+/* 
+ * Forest Green Theme 
+ * Color scheme CSS variables
+ */
+
+:root {
+  /* Primary colors */
+  --primary: #059669;        /* Bold green */
+  --primary-dark: #047857;   /* Dark green */
+  --primary-light: #10b981;  /* Light green */
+  
+  /* Accent */
+  --accent: #0d9488;         /* Teal */
+  --accent-light: #14b8a6;   /* Light teal */
+  --accent-dark: #0f766e;    /* Dark teal */
+  
+  /* Neutrals */
+  --dark: #111827;           /* Very dark gray */
+  --medium-dark: #1f2937;    /* Dark gray */
+  --medium: #374151;         /* Medium gray */
+  --medium-light: #6b7280;   /* Light gray */
+  --light: #f1f5f3;          /* Very light green-tinted gray */
+  --white: #ffffff;          /* White */
+  
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  /* Backgrounds */
+  --bg-hero: #0a2725;
+  --bg-main: #0a2725;
+  --bg-section-dark: linear-gradient(135deg, #0a2725 0%, #103c34 100%);
+  --bg-section-darker: linear-gradient(135deg, #071a17 0%, #0a2725 100%);
+  --bg-section-light: var(--white);
+  --bg-card: #103c34;
+  --bg-footer: #0a2725;
+  --bg-header: rgba(10, 39, 37, 0.85);
+  --bg-header-scrolled: #0a2725;
+  
+  /* Component-specific */
+  --tag-bg: rgba(13, 148, 136, 0.15);
+  --tag-color: var(--accent-light);
+  --timeline-glow: rgba(13, 148, 136, 0.5);
+}
