@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/palettes/monochrome-theme.css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/language-switcher.css">
+  <script src="js/language-switcher.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script
     type="text/javascript">WebFont.load({ google: { families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"] } });</script>
@@ -33,12 +35,12 @@
 
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="#" class="nav-item">Home</a></li>
-          <li><a href="#highlights" class="nav-item">Highlights</a></li>
-          <li><a href="#projects" class="nav-item">Projects</a></li>
-          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#" class="nav-item" data-i18n="NAV_HOME">Home</a></li>
+          <li><a href="#highlights" class="nav-item" data-i18n="NAV_HIGHLIGHTS">Highlights</a></li>
+          <li><a href="#projects" class="nav-item" data-i18n="NAV_PROJECTS">Projects</a></li>
+          <li><a href="#about" class="nav-item" data-i18n="NAV_ABOUT">About</a></li>
         </ul>
-        <a href="#form" class="cta-button">Let's work together!</a>
+        <a href="#form" class="cta-button" data-i18n="CTA_WORK_TOGETHER">Let's work together!</a>
       </nav>
 
       <button class="mobile-toggle">
@@ -53,13 +55,16 @@
   <section class="hero">
     <div class="container">
       <div class="hero-wrapper-two animate-on-scroll" data-animation="fade-in">
-        <h1 class="heading-2 animate-on-scroll" data-animation="slide-up">Website &amp; application Creator you need
+        <h1 class="heading-2 animate-on-scroll" data-animation="slide-up" data-i18n="HERO_TITLE">Website &amp; application Creator you need
         </h1>
-        <p class="margin-bottom-24px animate-on-scroll" data-animation="slide-up">A full-stack programmer skilled in
-          PHP, JavaScript, and SQL can create dynamic web
-          applications from front to back. <br>I can design interactive interfaces, build server-side functionality, and
-          manage data.</p>
-        <a href="#form" class="button-primary w-button animate-on-scroll" data-animation="fade-in">let&#x27;s work
+        <p class="margin-bottom-24px animate-on-scroll" data-animation="slide-up">
+          <span data-i18n="HERO_DESCRIPTION_1">A full-stack programmer skilled in
+            PHP, JavaScript, and SQL can create dynamic web
+            applications from front to back.</span> <br>
+          <span data-i18n="HERO_DESCRIPTION_2">I can design interactive interfaces, build server-side functionality, and
+            manage data.</span>
+        </p>
+        <a href="#form" class="button-primary w-button animate-on-scroll" data-animation="fade-in" data-i18n="HERO_CTA">let&#x27;s work
           together</a>
       </div>
     </div>
@@ -69,24 +74,26 @@
   <section class="gallery-scroll gallery-image-wrapper rollback8" id="highlights">
     <div class="w-layout-vflex flex-block gallery-sticky">
       <div class="icon"></div>
-      <h1 class="heading">Rollback 8</h1>
-      <p class="paragraph">One-click ultra-realistic 8MM Film Emulation effect for Adobe After Effect &amp; Adobe
+      <h1 class="heading" data-i18n="PROJECT_TITLE_RB8">Rollback 8</h1>
+      <p class="paragraph" data-i18n="ROLLBACK8_DESCRIPTION">One-click ultra-realistic 8MM Film Emulation effect for Adobe After Effect &amp; Adobe
         Premiere Pro.</p>
     </div>
     <div class="w-layout-vflex flex-block bottom">
-      <p class="paragraph">*Made for Adobe After Effect &amp; Adobe Premiere Pro</p>
+      <p class="paragraph" data-i18n="ROLLBACK8_FOOTER">*Made for Adobe After Effect &amp; Adobe Premiere Pro</p>
     </div>
   </section>
   <section class="gallery-scroll gallery-image-wrapper crt">
     <div class="w-layout-vflex flex-block gallery-sticky">
       <div class="icon"></div>
-      <h1 class="heading">CRT Emulator</h1>
-      <p class="paragraph">Get the coveted CRT effect in the click of a button. Our CRT Emulator gets the need for a
-        bulky, tedious setup out of the way and gives you complete control of every individual element of the CRT look.
+      <h1 class="heading" data-i18n="PROJECT_TITLE_CRT">CRT Emulator</h1>
+      <p class="paragraph">
+        <span data-i18n="CRT_DESCRIPTION">Get the coveted CRT effect in the click of a button.</span>
+        <span data-i18n="CRT_DESCRIPTION_FULL">Our CRT Emulator gets the need for a
+          bulky, tedious setup out of the way and gives you complete control of every individual element of the CRT look.</span>
       </p>
     </div>
     <div class="w-layout-vflex flex-block bottom">
-      <p class="paragraph">*Made for Adobe After Effect</p>
+      <p class="paragraph" data-i18n="CRT_FOOTER">*Made for Adobe After Effect</p>
     </div>
   </section>
 
@@ -102,9 +109,9 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">Application</div>
-            <h3 class="project-title">Whats for Dinner</h3>
-            <p class="project-description">An AI-powered app suggesting recipes based on ingredients you have, using
+            <div class="project-tag" data-i18n="PROJECT_TYPE_APP">Application</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_DINNER">Whats for Dinner</h3>
+            <p class="project-description" data-i18n="PROJECT_DINNER_DESC">An AI-powered app suggesting recipes based on ingredients you have, using
               text, voice, or image input.</p>
             <div class="project-meta">
               <div class="project-tech">
@@ -112,7 +119,7 @@
                 <span class="tech-tag">MySQL</span>
                 <span class="tech-tag">JavaScript</span>
               </div>
-              <a href="#" class="project-link">
+              <a href="#" class="project-link" data-i18n="PROJECT_STATUS_COMING">
                 Comming Soon
               </a>
             </div>
@@ -126,17 +133,17 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">Desktop App</div>
-            <h3 class="project-title">FredPelle Dashboard</h3>
-            <p class="project-description">A desktop app for downloading products, accessing purchase links, and
-              streaming FredPelle’s YouTube videos seamlessly.</p>
+            <div class="project-tag" data-i18n="PROJECT_TYPE_DESKTOP">Desktop App</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_FREDPELLE">FredPelle Dashboard</h3>
+            <p class="project-description" data-i18n="PROJECT_FREDPELLE_DESC">A desktop app for downloading products, accessing purchase links, and
+              streaming FredPelle's YouTube videos seamlessly.</p>
             <div class="project-meta">
               <div class="project-tech">
                 <span class="tech-tag">Electron</span>
                 <span class="tech-tag">MySQL</span>
                 <span class="tech-tag">Node.js</span>
               </div>
-              <a href="#" class="project-link">
+              <a href="#" class="project-link" data-i18n="PROJECT_STATUS_COMING">
                 Comming Soon
               </a>
             </div>
@@ -150,9 +157,9 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">API</div>
-            <h3 class="project-title">Telemetry API</h3>
-            <p class="project-description">A real-time telemetry system using WebSocket, Redis, and MySQL for tracking
+            <div class="project-tag" data-i18n="PROJECT_TYPE_API">API</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_TELEMETRY">Telemetry API</h3>
+            <p class="project-description" data-i18n="PROJECT_TELEMETRY_DESC">A real-time telemetry system using WebSocket, Redis, and MySQL for tracking
               driver positions.</p>
             <div class="project-meta">
               <div class="project-tech">
@@ -160,7 +167,7 @@
                 <span class="tech-tag">Redis</span>
                 <span class="tech-tag">MySQL</span>
               </div>
-              <a href="#" class="project-link">
+              <a href="#" class="project-link" data-i18n="PROJECT_STATUS_PRIVATE">
                 Private
               </a>
             </div>
@@ -174,10 +181,10 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">AFTER EFFECT</div>
-            <div class="project-tag">PREMIERE PRO</div>
-            <h3 class="project-title">Rollback8</h3>
-            <p class="project-description">Achieve Ultra-Realistic Super 8 Film Emulations with the press of a button,
+            <div class="project-tag" data-i18n="PROJECT_TYPE_AE">AFTER EFFECT</div>
+            <div class="project-tag" data-i18n="PROJECT_TYPE_PR">PREMIERE PRO</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_ROLLBACK8">Rollback8</h3>
+            <p class="project-description" data-i18n="PROJECT_RB8_DESC">Achieve Ultra-Realistic Super 8 Film Emulations with the press of a button,
               then easily tweak it to your liking from an easy to use interface.
             </p>
             <br>
@@ -188,7 +195,7 @@
                 <span class="tech-tag">JavaScript</span>
               </div>
               <a href="https://fredpelle.tv/products/rollback8" class="project-link">
-                View Project
+                <span data-i18n="PROJECT_VIEW">View Project</span>
                 <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -206,12 +213,13 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">AFTER EFFECT</div>
-            <div class="project-tag">PREMIERE PRO</div>
-            <h3 class="project-title">CTR Emulator</h3>
-            <p class="project-description">Achieve the CRT effect effortlessly. Previously available on
+            <div class="project-tag" data-i18n="PROJECT_TYPE_AE">AFTER EFFECT</div>
+            <div class="project-tag" data-i18n="PROJECT_TYPE_PR">PREMIERE PRO</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_CRT">CTR Emulator</h3>
+            <p class="project-description">
+              <span data-i18n="PROJECT_CRT_DESC_1">Achieve the CRT effect effortlessly. Previously available on</span>
               <a href="https://www.happyediting.co/">happyediting</a>,
-              it was removed after being rebought. A remake is planned, with free downloads still circulating online.
+              <span data-i18n="PROJECT_CRT_DESC_2">it was removed after being rebought. A remake is planned, with free downloads still circulating online.</span>
             </p>
             <div class="project-meta">
               <div class="project-tech">
@@ -219,7 +227,7 @@
                 <span class="tech-tag">JSX</span>
                 <span class="tech-tag">JavaScript</span>
               </div>
-              <a href="#" class="project-link">
+              <a href="#" class="project-link" data-i18n="PROJECT_STATUS_DISCONTINUED">
                 Discontinued
               </a>
             </div>
@@ -233,10 +241,10 @@
             <div class="project-overlay"></div>
           </div>
           <div class="project-details">
-            <div class="project-tag">AFTER EFFECT</div>
-            <div class="project-tag">PREMIERE PRO</div>
-            <h3 class="project-title">Rollback16</h3>
-            <p class="project-description">Achieve Ultra-Realistic 16MM Film Emulations with the press of a button,
+            <div class="project-tag" data-i18n="PROJECT_TYPE_AE">AFTER EFFECT</div>
+            <div class="project-tag" data-i18n="PROJECT_TYPE_PR">PREMIERE PRO</div>
+            <h3 class="project-title" data-i18n="PROJECT_TITLE_ROLLBACK16">Rollback16</h3>
+            <p class="project-description" data-i18n="PROJECT_RB16_DESC">Achieve Ultra-Realistic 16MM Film Emulations with the press of a button,
               then easily tweak settings like Grain, Halation, Filmstock and more from an easy to use interface.</p>
             <div class="project-meta">
               <div class="project-tech">
@@ -244,7 +252,7 @@
                 <span class="tech-tag">JSX</span>
                 <span class="tech-tag">JavaScript</span>
               </div>
-              <a href="https://fredpelle.tv/products/rollback16" class="project-link">
+              <a href="https://fredpelle.tv/products/rollback16" class="project-link" data-i18n="PROJECT_STATUS_WIP">
                 Work in Progress
               </a>
             </div>
@@ -261,21 +269,26 @@
         <div class="image-container animate-on-scroll" data-animation="slide-up">
           <img src="./images/me.jpg" alt="That is me!" class="about-image">
           <div class="image-overlay">
-            <p class="image-caption">Full-stack developer based in Montreal, Canada</p>
+            <p class="image-caption" data-i18n="FOOTER_TAGLINE">Full-stack developer based in Montreal, Canada</p>
           </div>
         </div>
         <div class="about-content animate-on-scroll" data-animation="slide-up">
-          <h1>About Me</h1>
-          <p>Hello! I'm <span style="font-size: 24px;" class="highlight">Max</span>, a full-stack developer specializing
-            in both front-end and
-            back-end development, with expertise in JavaScript, Python, and SQL technologies.</p>
-          <p>On the front-end, I excel in creating <span class="highlight">responsive and interactive interfaces</span>
-            using React, Angular, and Flutter. My UI/UX skills ensure beautiful, user-centric designs with expert-level
-            wireframing and responsive design implementation.</p>
-          <p>For back-end development, I leverage Python, Node.js, and PHP to build robust server-side applications. My
+          <h1 data-i18n="ABOUT_TITLE">About Me</h1>
+          <p>
+            <span data-i18n="ABOUT_HELLO">Hello! I'm</span> <span style="font-size: 24px;" class="highlight">Max</span>, 
+            <span data-i18n="ABOUT_INTRO">a full-stack developer specializing
+            in both front-end and back-end development, with expertise in JavaScript, Python, and SQL technologies.</span>
+          </p>
+          <p>
+            <span data-i18n="ABOUT_FRONTEND_START">On the front-end, I excel in creating</span> 
+            <span class="highlight" data-i18n="ABOUT_FRONTEND_HIGHLIGHT">responsive and interactive interfaces</span>
+            <span data-i18n="ABOUT_FRONTEND_REST">using React, Angular, and Flutter. My UI/UX skills ensure beautiful, user-centric designs with expert-level
+            wireframing and responsive design implementation.</span>
+          </p>
+          <p data-i18n="ABOUT_BACKEND">For back-end development, I leverage Python, Node.js, and PHP to build robust server-side applications. My
             database management skills include MySQL, Redis, and Prometheus, ensuring efficient data handling and system
             monitoring.</p>
-          <p>Whether it's crafting beautiful user interfaces, implementing complex backend logic, or optimizing database
+          <p data-i18n="ABOUT_SUMMARY">Whether it's crafting beautiful user interfaces, implementing complex backend logic, or optimizing database
             performance, I bring a comprehensive skill set to every project. My commitment to clean code and performance
             optimization ensures scalable, maintainable solutions.</p>
         </div>
@@ -292,7 +305,10 @@
     <div class="shape shape-4"></div>
     <div class="skills-container">
       <div class="skills-heading animate-on-scroll" data-animation="fade-in">
-        <h2>Proficient in Multiple<br>Programming Languages and Tools</h2>
+        <h2>
+          <span data-i18n="SKILLS_TITLE_1">Proficient in Multiple</span><br>
+          <span data-i18n="SKILLS_TITLE_2">Programming Languages and Tools</span>
+        </h2>
       </div>
 
       <div class="carousel-container">
@@ -301,7 +317,7 @@
       <div class="skills-grid animate-on-scroll" data-animation="animate">
         <div>
           <div class="skill-category animate-on-scroll" data-animation="fade-in">
-            <h3>Front-End Development</h3>
+            <h3 data-i18n="SKILLS_FRONTEND">Front-End Development</h3>
 
             <div class="skill-item animate-on-scroll" data-animation="animate">
               <div class="skill-info">
@@ -312,7 +328,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 95%;">
-                  <div class="skill-tooltip">Expert</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_EXPERT">Expert</div>
                 </div>
               </div>
             </div>
@@ -326,7 +342,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 80%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -340,7 +356,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 90%;">
-                  <div class="skill-tooltip">Expert</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_EXPERT">Expert</div>
                 </div>
               </div>
             </div>
@@ -354,25 +370,25 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 85%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="skill-category animate-on-scroll" data-animation="fade-in">
-            <h3>UI/UX Design</h3>
+            <h3 data-i18n="SKILLS_UI_UX">UI/UX Design</h3>
 
             <div class="skill-item animate-on-scroll" data-animation="animate">
               <div class="skill-info">
                 <div class="with-icon">
                   <div class="skill-icon">W</div>
-                  <div class="skill-name">Wireframing</div>
+                  <div class="skill-name" data-i18n="SKILL_WIREFRAMING">Wireframing</div>
                 </div>
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 80%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -381,12 +397,12 @@
               <div class="skill-info">
                 <div class="with-icon">
                   <div class="skill-icon">UX</div>
-                  <div class="skill-name">User Experience</div>
+                  <div class="skill-name" data-i18n="SKILL_UX">User Experience</div>
                 </div>
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 92%;">
-                  <div class="skill-tooltip">Expert</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_EXPERT">Expert</div>
                 </div>
               </div>
             </div>
@@ -395,12 +411,12 @@
               <div class="skill-info">
                 <div class="with-icon">
                   <div class="skill-icon">RD</div>
-                  <div class="skill-name">Responsive Design</div>
+                  <div class="skill-name" data-i18n="SKILL_RESPONSIVE">Responsive Design</div>
                 </div>
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 85%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -409,7 +425,7 @@
 
         <div>
           <div class="skill-category animate-on-scroll" data-animation="fade-in">
-            <h3>Back-End Development</h3>
+            <h3 data-i18n="SKILLS_BACKEND">Back-End Development</h3>
 
             <div class="skill-item animate-on-scroll" data-animation="animate">
               <div class="skill-info">
@@ -420,7 +436,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 95%;">
-                  <div class="skill-tooltip">Expert</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_EXPERT">Expert</div>
                 </div>
               </div>
             </div>
@@ -434,7 +450,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 80%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -448,7 +464,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 85%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -462,14 +478,14 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 75%;">
-                  <div class="skill-tooltip">Proficient</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_PROFICIENT">Proficient</div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="skill-category animate-on-scroll" data-animation="fade-in">
-            <h3>Database Management</h3>
+            <h3 data-i18n="SKILLS_DATABASE">Database Management</h3>
 
             <div class="skill-item animate-on-scroll" data-animation="animate">
               <div class="skill-info">
@@ -480,7 +496,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 90%;">
-                  <div class="skill-tooltip">Expert</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_EXPERT">Expert</div>
                 </div>
               </div>
             </div>
@@ -494,7 +510,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 75%;">
-                  <div class="skill-tooltip">Proficient</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_PROFICIENT">Proficient</div>
                 </div>
               </div>
             </div>
@@ -508,7 +524,7 @@
               </div>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="--skill-width: 85%;">
-                  <div class="skill-tooltip">Advanced</div>
+                  <div class="skill-tooltip" data-i18n="SKILL_LEVEL_ADVANCED">Advanced</div>
                 </div>
               </div>
             </div>
@@ -524,15 +540,15 @@
     <div class="shape shape-6"></div>
     <div class="experience-container">
       <div class="experience-heading animate-on-scroll" data-animation="fade-in">
-        <h2>Professional Experience</h2>
+        <h2 data-i18n="EXPERIENCE_TITLE">Professional Experience</h2>
       </div>
       <div class="timeline animate-on-scroll" data-animation="animate">
         <div class="timeline-item animate-on-scroll" data-animation="fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2024 - Present</div>
-            <div class="timeline-title">Full-Stack Developer</div>
-            <p>Full-stack programmer specializing in creating responsive websites and mobile applications,
+            <div class="timeline-title" data-i18n="JOB_TITLE_FULLSTACK">Full-Stack Developer</div>
+            <p data-i18n="JOB_DESC_FULLSTACK_1">Full-stack programmer specializing in creating responsive websites and mobile applications,
               delivering intuitive user interfaces and reliable back-end systems.</p>
           </div>
         </div>
@@ -540,8 +556,8 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2019 - Present</div>
-            <div class="timeline-title">Full-Stack Developer</div>
-            <p>Specialized in developing Adobe extensions, backend servers and desktop applications,
+            <div class="timeline-title" data-i18n="JOB_TITLE_FULLSTACK">Full-Stack Developer</div>
+            <p data-i18n="JOB_DESC_FULLSTACK_2">Specialized in developing Adobe extensions, backend servers and desktop applications,
               delivering seamless user experiences and robust functionality.</p>
           </div>
         </div>
@@ -549,8 +565,8 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2021 - 2023</div>
-            <div class="timeline-title">Full-Stack Developer</div>
-            <p>Developed and maintained various web applications using PHP, JavaScript, and MySQL. Implemented
+            <div class="timeline-title" data-i18n="JOB_TITLE_FULLSTACK">Full-Stack Developer</div>
+            <p data-i18n="JOB_DESC_FULLSTACK_3">Developed and maintained various web applications using PHP, JavaScript, and MySQL. Implemented
               responsive designs and improved application performance.</p>
           </div>
         </div>
@@ -558,8 +574,8 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2015 - 2017</div>
-            <div class="timeline-title">Tech Support Level 1</div>
-            <p>Provided technical support for software and hardware issues. Assisted customers in troubleshooting and
+            <div class="timeline-title" data-i18n="JOB_TITLE_TECH_SUPPORT">Tech Support Level 1</div>
+            <p data-i18n="JOB_DESC_TECH_SUPPORT">Provided technical support for software and hardware issues. Assisted customers in troubleshooting and
               resolving technical problems effectively.</p>
           </div>
         </div>
@@ -570,27 +586,27 @@
   <!-- Why Me Section -->
   <section class="pricing-overview">
     <div class="container">
-      <h2 class="centered-heading">Why should we work together ?</h2>
+      <h2 class="centered-heading" data-i18n="WHY_ME_TITLE">Why should we work together ?</h2>
       <div class="pricing-grid">
         <div id="w-node-_84aebea2-d606-c409-6326-dd6dbc7845e6-0ffe750f" class="pricing-card-three"><img
             src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124ace5e12aae4_portfolio%204%20-%20wide.svg"
             loading="lazy" alt="" class="pricing-image">
-          <h3>Features</h3>
-          <p class="pricing-card-text">I design beautiful &amp; engaging hand made websites with a user-centric approach
+          <h3 data-i18n="WHY_ME_FEATURES">Features</h3>
+          <p class="pricing-card-text" data-i18n="WHY_ME_FEATURES_DESC">I design beautiful &amp; engaging hand made websites with a user-centric approach
             that can be easily custiomized &amp; updated. </p>
         </div>
         <div id="w-node-_84aebea2-d606-c409-6326-dd6dbc7845ec-0ffe750f" class="pricing-card-three"><img
             src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124a55c612aae2_portfolio%202%20-%20wide.svg"
             loading="lazy" alt="" class="pricing-image">
-          <h3><strong>Time Management</strong></h3>
-          <p class="pricing-card-text">Effectively allocate resources, meet deadlines, and prioritize tasks, ensuring
+          <h3 data-i18n="WHY_ME_TIME">Time Management</h3>
+          <p class="pricing-card-text" data-i18n="WHY_ME_TIME_DESC">Effectively allocate resources, meet deadlines, and prioritize tasks, ensuring
             timely project completion.</p>
         </div>
         <div id="w-node-_84aebea2-d606-c409-6326-dd6dbc7845f3-0ffe750f" class="pricing-card-three"><img
             src="https://uploads-ssl.webflow.com/62434fa732124a0fb112aab4/62434fa732124af1aa12aadf_placeholder%201.svg"
             loading="lazy" alt="" class="pricing-image">
-          <h3>Benefits</h3>
-          <p class="pricing-card-text">I design websites that help businesses increase their yearly revenue, scale to
+          <h3 data-i18n="WHY_ME_BENEFITS">Benefits</h3>
+          <p class="pricing-card-text" data-i18n="WHY_ME_BENEFITS_DESC">I design websites that help businesses increase their yearly revenue, scale to
             have more financial peace &amp; provide owners free time to be with their loved ones.</p>
         </div>
       </div>
@@ -603,12 +619,12 @@
     <div class="shape shape-contact-2"></div>
     <div class="contact-container">
       <div class="contact-heading animate-on-scroll" data-animation="fade-in">
-        <h2>Let's Work Together</h2>
+        <h2 data-i18n="CONTACT_TITLE">Let's Work Together</h2>
       </div>
       <div class="contact-grid">
         <div class="contact-info animate-on-scroll" data-animation="slide-up">
-          <h3>Get in Touch</h3>
-          <p>Need someone experienced and skilled with your projects? Fill out the form to get a free consultation.</p>
+          <h3 data-i18n="CONTACT_SUBTITLE">Get in Touch</h3>
+          <p data-i18n="CONTACT_DESC">Need someone experienced and skilled with your projects? Fill out the form to get a free consultation.</p>
 
           <div class="contact-item">
             <div class="contact-icon">
@@ -637,22 +653,22 @@
         <div class="contact-form-wrapper animate-on-scroll" data-animation="slide-up">
           <form id="contactForm" class="contact-form">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+              <label for="name" data-i18n="FORM_NAME">Name</label>
+              <input type="text" id="name" name="name" data-i18n-placeholder="FORM_NAME_PLACEHOLDER" placeholder="Enter your name" required>
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              <label for="email" data-i18n="FORM_EMAIL">Email</label>
+              <input type="email" id="email" name="email" data-i18n-placeholder="FORM_EMAIL_PLACEHOLDER" placeholder="Enter your email" required>
             </div>
 
             <div class="form-group full-width">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+              <label for="message" data-i18n="FORM_MESSAGE">Message</label>
+              <textarea id="message" name="message" data-i18n-placeholder="FORM_MESSAGE_PLACEHOLDER" placeholder="Tell me about your project..." required></textarea>
             </div>
 
             <button type="submit" class="submit-button">
-              <span>Send Message</span>
+              <span data-i18n="FORM_SUBMIT">Send Message</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -667,7 +683,7 @@
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
-            <p>Thank you! Your message has been sent successfully.</p>
+            <p data-i18n="FORM_SUCCESS">Thank you! Your message has been sent successfully.</p>
           </div>
 
           <div id="formError" class="form-message error-message">
@@ -677,12 +693,13 @@
               <line x1="12" y1="8" x2="12" y2="12"></line>
               <line x1="12" y1="16" x2="12.01" y2="16"></line>
             </svg>
-            <p>Oops! Something went wrong. Please try again later.</p>
+            <p data-i18n="FORM_ERROR">Oops! Something went wrong. Please try again later.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
   <!-- Footer Section -->
   <footer class="modern-footer">
     <div class="footer-container">
@@ -691,22 +708,22 @@
           <a href="#">
             <img src="images/logo.svg" alt="Max Portfolio Logo">
           </a>
-          <p class="footer-tagline">Full-stack developer based in Montreal, Canada</p>
+          <p class="footer-tagline" data-i18n="FOOTER_TAGLINE">Full-stack developer based in Montreal, Canada</p>
         </div>
 
         <div class="footer-links">
           <div class="footer-column">
-            <h3 class="footer-heading">Navigation</h3>
+            <h3 class="footer-heading" data-i18n="FOOTER_NAV">Navigation</h3>
             <ul class="footer-nav">
-              <li><a href="#">Home</a></li>
-              <li><a href="#highlights">Highlights</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="#" data-i18n="NAV_HOME">Home</a></li>
+              <li><a href="#highlights" data-i18n="NAV_HIGHLIGHTS">Highlights</a></li>
+              <li><a href="#projects" data-i18n="NAV_PROJECTS">Projects</a></li>
+              <li><a href="#about" data-i18n="NAV_ABOUT">About</a></li>
             </ul>
           </div>
 
           <div class="footer-column">
-            <h3 class="footer-heading">Contact</h3>
+            <h3 class="footer-heading" data-i18n="FOOTER_CONTACT">Contact</h3>
             <ul class="footer-nav">
               <li><a href="mailto:maxlp12@gmail.com">maxlp12@gmail.com</a></li>
               <li><a href="tel:+14384069699">+1 (438) 406-9699</a></li>
@@ -727,7 +744,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="copyright">Copyright © 2025 Maxime Létourneau Pelletier</div>
+        <div class="copyright"><span data-i18n="FOOTER_COPYRIGHT">Copyright ©</span> 2025 Maxime Létourneau Pelletier</div>
       </div>
     </div>
   </footer>

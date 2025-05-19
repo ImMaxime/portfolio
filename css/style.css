@@ -90,6 +90,50 @@ textarea {
   line-height: inherit;
 }
 
+/* Language Switcher Styles */
+.language-toggle {
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  color: var(--accent-color, #4a6cf7);
+}
+
+.language-toggle:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color, #4a6cf7);
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.language-toggle:hover:after {
+  width: 100%;
+}
+
+/* Responsive styles for language toggle */
+@media (max-width: 768px) {
+  .language-toggle {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: 1px solid var(--accent-color, #4a6cf7);
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+  }
+  
+  .language-toggle:after {
+    display: none;
+  }
+}
+
 /* ======= HEADER ======= */
 .modern-header {
   background: var(--bg-header);
@@ -512,6 +556,7 @@ textarea {
   color: var(--light);
   margin-bottom: 20px;
   line-height: 1.6;
+  min-height: 144px;
 }
 
 .project-meta {
@@ -1103,7 +1148,6 @@ textarea {
 
 .timeline {
   position: relative;
-  max-width: 800px;
   margin: 0 auto;
 }
 
