@@ -122,7 +122,7 @@ const translations = {
     NAV_HIGHLIGHTS: "En Vedette",
     NAV_PROJECTS: "Projets",
     NAV_ABOUT: "À propos",
-    CTA_WORK_TOGETHER: "Travaillons ensemble !",
+    CTA_WORK_TOGETHER: "Travaillons ensemble!",
     
     // Hero Section
     HERO_TITLE: "Créateur web & d'Applications dont vous avez besoin",
