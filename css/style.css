@@ -278,7 +278,7 @@ textarea {
 }
 
 .heading-2 {
-  color: var(--lt-color-gray-700);
+  color: var(--dark);
   text-transform: capitalize;
   font-size: 72px;
   line-height: 1.1;
@@ -287,7 +287,7 @@ textarea {
 
 .margin-bottom-24px {
   margin-bottom: 24px;
-  color: var(--lt-color-gray-700)
+  color: var(--dark)
 }
 
 .button-primary {
