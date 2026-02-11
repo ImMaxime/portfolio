@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Be My Valentine? 💕</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Webflow" name="generator">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="body">
+    <!--  -->
+    <header>
+        <h1>WILL YOU BE MY <b>VALENTINE</b>?</h1>
+        <p>🌹 A special question for someone special 🌹</p>
+        <div class="hearts-animation">
+            <span class="heart">💖</span>
+            <span class="heart">💕</span>
+            <span class="heart">💗</span>
+        </div>
+        <div class="">
+            <button class="btn btn-primary">Of Course! 💕</button>
+            <button class="btn btn-secondary">Tell Me More</button>
+        </div>
+    </header>
+    <div class="separation"></div>
+    <!--  -->
+    <section>
+        <h2>🌟 What makes us perfect together?</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="emoji">🎭</div>
+                <h3>We laugh together</h3>
+                <p>You appreciate my terrible jokes <i>(hopefully)</i> even when they are not funny</p>
+            </div>
+            <div class="reason-card">
+                <div class="emoji">🍕</div>
+                <h3>Food adventures</h3>
+                <p>From fancy dinners, homemade meals to midnight snacks, we're the perfect eating duo</p>
+            </div>
+            <div class="reason-card">
+                <div class="emoji">🎬</div>
+                <h3>Movie marathons</h3>
+                <p>Whether it's doctor house or your girl flicks, we always have the best time</p>
+            </div>
+            <div class="reason-card">
+                <div class="emoji">🌙</div>
+                <h3>Deep conversations</h3>
+                <p>Those 2 AM talks where we solve the world's problems together or make our brains rot</p>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+    <section>
+        <h2>🎯 My Valentine Qualifications</h2>
+        <div class="skills-container">
+            <div class="skill-bar">
+                <span class="skill-name">Cuddle Expert</span>
+                <div class="skill-progress" data-percent="95">95%</div>
+            </div>
+            <div class="skill-bar">
+                <span class="skill-name">Surprise Planner</span>
+                <div class="skill-progress" data-percent="88">88%</div>
+            </div>
+            <div class="skill-bar">
+                <span class="skill-name">Good Listener</span>
+                <div class="skill-progress" data-percent="92">92%</div>
+            </div>
+            <div class="skill-bar">
+                <span class="skill-name">Snack Provider</span>
+                <div class="skill-progress" data-percent="100">100%</div>
+            </div>
+        </div>
+    </section>
+    <div class="separation n2"></div>
+    <!--  -->
+    <footer>
+        <h2>💝 So... what do you say?</h2>
+        <p>Choose wisely... though we both know there's only one right answer! 😉</p>
+        <div class="button-container">
+            <button class="btn btn-yes" id="yesBtn">YES! 💖</button>
+            <button class="btn btn-no" id="noBtn">Maybe not...</button>
+        </div>
+        <div class="confetti" id="confetti"></div>
+    </footer>
+</body>
+<script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const confetti = document.getElementById('confetti');
+    
+    let noClickCount = 0;
+    let mouseNearNo = false;
+    let dodgeDistance = 80; // Reduced from 120 for easier clicking
+    let evasionSpeed = 0.4; // Slightly slower for easier targeting
+    let clickAttempts = 0; // Track click attempts per state
+    
+    const noBtnTexts = [
+        'Maybe not...',
+        'Are you sure?',
+        'Think again...',
+        'Really?? 🥺',
+        'This is your last chance!'
+    ];
+
+    // Enhanced hearts floating animation from bottom
+    function createFloatingHeart() {
+        const heart = document.createElement('div');
+        const heartTypes = ['💖', '💕', '💗', '❤️', '💙', '💜', '🤍', '🧡'];
+        heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+        heart.className = 'floating-heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+        heart.style.fontSize = (Math.random() * 1.5 + 1.5) + 'em';
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    // Create more frequent floating hearts
+    setInterval(createFloatingHeart, 1500);
+
+    // Create heart explosion when button is removed
+    function createHeartExplosion(centerX, centerY) {
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            const heartTypes = ['💖', '💕', '💗', '❤️', '💙', '💜'];
+            heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            heart.className = 'exploding-heart';
+            heart.style.left = centerX + 'px';
+            heart.style.top = centerY + 'px';
+            heart.style.fontSize = (Math.random() * 1 + 1.5) + 'em';
+            
+            const angle = (Math.PI * 2 * i) / 20;
+            const distance = Math.random() * 200 + 100;
+            heart.style.setProperty('--end-x', Math.cos(angle) * distance + 'px');
+            heart.style.setProperty('--end-y', Math.sin(angle) * distance + 'px');
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+    }
+
+    // Function to move No button away from cursor
+    function dodgeButton(mouseX, mouseY) {
+        if (!noBtn || noClickCount >= noBtnTexts.length) return;
+        
+        const rect = noBtn.getBoundingClientRect();
+        const btnCenterX = rect.left + rect.width / 2;
+        const btnCenterY = rect.top + rect.height / 2;
+        
+        const distance = Math.sqrt(
+            Math.pow(mouseX - btnCenterX, 2) + Math.pow(mouseY - btnCenterY, 2)
+        );
+        
+        if (distance < dodgeDistance) {
+            // Calculate escape direction (opposite of mouse)
+            const directionX = btnCenterX - mouseX;
+            const directionY = btnCenterY - mouseY;
+            const magnitude = Math.sqrt(directionX * directionX + directionY * directionY);
+            
+            // Normalize direction and add some randomness
+            const normalizedX = (directionX / magnitude) + (Math.random() - 0.5) * 0.6;
+            const normalizedY = (directionY / magnitude) + (Math.random() - 0.5) * 0.6;
+            
+            // Calculate new position with evasion
+            const escapeDistance = dodgeDistance + Math.random() * 100;
+            let newX = btnCenterX + normalizedX * escapeDistance;
+            let newY = btnCenterY + normalizedY * escapeDistance;
+            
+            // Keep button within viewport bounds with margin
+            const margin = 50;
+            const maxX = window.innerWidth - rect.width - margin;
+            const maxY = window.innerHeight - rect.height - margin;
+            newX = Math.max(margin, Math.min(maxX, newX - rect.width / 2));
+            newY = Math.max(margin, Math.min(maxY, newY - rect.height / 2));
+            
+            // Apply smooth evasive movement
+            noBtn.style.transition = `all ${evasionSpeed}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+            noBtn.style.transform = `scale(0.9) rotate(${Math.random() * 20 - 10}deg)`;
+            noBtn.style.zIndex = '1000';
+            
+            // Add panic effect
+            noBtn.style.animation = 'panic-shake 0.4s ease-in-out';
+            
+            setTimeout(() => {
+                noBtn.style.transform = 'scale(1) rotate(0deg)';
+                noBtn.style.animation = '';
+            }, 400);
+        }
+    }
+
+    // Create fake decoy buttons
+    function createFakeButton() {
+        const fakeBtn = document.createElement('button');
+        fakeBtn.className = 'btn btn-no fake-btn';
+        fakeBtn.textContent = noBtn.textContent;
+        fakeBtn.style.position = 'fixed';
+        fakeBtn.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+        fakeBtn.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+        fakeBtn.style.zIndex = '999';
+        fakeBtn.style.opacity = '0.6';
+        fakeBtn.style.filter = 'blur(1px)';
+        
+        document.body.appendChild(fakeBtn);
+        
+        fakeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            fakeBtn.style.animation = 'poof 0.5s ease-out forwards';
+            
+            // Create mini heart explosion
+            for (let i = 0; i < 3; i++) {
+                const miniHeart = document.createElement('div');
+                miniHeart.innerHTML = '💔';
+                miniHeart.className = 'mini-heart';
+                miniHeart.style.position = 'fixed';
+                miniHeart.style.left = (fakeBtn.offsetLeft + Math.random() * 50) + 'px';
+                miniHeart.style.top = (fakeBtn.offsetTop + Math.random() * 50) + 'px';
+                miniHeart.style.fontSize = '1.2em';
+                miniHeart.style.zIndex = '1002';
+                miniHeart.style.pointerEvents = 'none';
+                miniHeart.style.animation = 'mini-explode 1s ease-out forwards';
+                document.body.appendChild(miniHeart);
+                
+                setTimeout(() => miniHeart.remove(), 1000);
+            }
+            
+            setTimeout(() => fakeBtn.remove(), 500);
+            
+            // Make Yes button more attractive when fake is clicked
+            yesBtn.style.transform = 'scale(1.1)';
+            yesBtn.style.animation = 'gentle-pulse 2s infinite';
+        });
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (fakeBtn.parentNode) {
+                fakeBtn.style.animation = 'fade-away 0.5s ease-out forwards';
+                setTimeout(() => fakeBtn.remove(), 500);
+            }
+        }, 3000);
+    }
+
+    // Track mouse movement globally for evasion
+    document.addEventListener('mousemove', (e) => {
+        dodgeButton(e.clientX, e.clientY);
+    });
+
+    // Animate skill bars on page load
+    window.addEventListener('load', () => {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        skillBars.forEach((bar, index) => {
+            setTimeout(() => {
+                const percent = bar.getAttribute('data-percent');
+                bar.style.width = percent + '%';
+            }, index * 300);
+        });
+    });
+
+    // Enhanced No button behavior with balanced difficulty
+    noBtn.addEventListener('mouseenter', () => {
+        if (noClickCount < noBtnTexts.length) {
+            // Reduced fake button probability for better progression
+            if (Math.random() < 0.25 + (noClickCount * 0.1)) {
+                createFakeButton();
+            }
+            
+            // Vibrate if supported
+            if (navigator.vibrate) {
+                navigator.vibrate([50, 30, 50]);
+            }
+            
+            // Reduced teleportation chance for better progression
+            if (Math.random() < 0.3 + (noClickCount * 0.05)) {
+                const randomX = Math.random() * (window.innerWidth - 200);
+                const randomY = Math.random() * (window.innerHeight - 100);
+                
+                noBtn.style.transition = 'all 0.12s ease-out';
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = randomX + 'px';
+                noBtn.style.top = randomY + 'px';
+                noBtn.style.transform = 'scale(0.95) rotate(90deg)';
+                
+                setTimeout(() => {
+                    noBtn.style.transform = 'scale(1) rotate(0deg)';
+                }, 120);
+            }
+            
+            // Reduced invisibility chance
+            if (Math.random() < 0.1) {
+                noBtn.style.opacity = '0.1';
+                setTimeout(() => {
+                    noBtn.style.opacity = '1';
+                }, 500);
+            }
+        }
+    });
+
+    // Balanced No button click handling - allows progression but still challenging
+    noBtn.addEventListener('click', (e) => {
+        clickAttempts++;
+        
+        // Progressive difficulty: harder to dodge after multiple attempts per state
+        const dodgeChance = Math.max(0.1, 0.4 - (clickAttempts * 0.08)); // Decreases with attempts
+        
+        // Chance to dodge the click, but becomes easier with persistence
+        if (Math.random() < dodgeChance) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Move button away immediately
+            const randomX = Math.random() * (window.innerWidth - 200);
+            const randomY = Math.random() * (window.innerHeight - 100);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            noBtn.style.animation = 'dodge-laugh 0.4s ease-out';
+            
+            // Create a taunt message
+            const taunt = document.createElement('div');
+            const tauntMessages = ['😏 Nice try!', '🙃 Almost!', '😜 So close!', '🤭 Keep trying!'];
+            taunt.innerHTML = tauntMessages[Math.floor(Math.random() * tauntMessages.length)];
+            taunt.style.position = 'fixed';
+            taunt.style.left = (e.clientX - 50) + 'px';
+            taunt.style.top = (e.clientY - 30) + 'px';
+            taunt.style.fontSize = '1.2em';
+            taunt.style.color = 'var(--color5)';
+            taunt.style.zIndex = '1001';
+            taunt.style.pointerEvents = 'none';
+            taunt.style.animation = 'taunt-fade 1.5s ease-out forwards';
+            document.body.appendChild(taunt);
+            
+            setTimeout(() => taunt.remove(), 1500);
+            return false;
+        }
+        
+        // Successful click - progress to next state
+        clickAttempts = 0; // Reset attempts for next state
+        noClickCount++;
+        
+        if (noClickCount < noBtnTexts.length) {
+            noBtn.textContent = noBtnTexts[noClickCount];
+            noBtn.style.transform = 'scale(0.85)';
+            
+            // Make the Yes button bigger and more appealing
+            yesBtn.style.transform = 'scale(1.15)';
+            yesBtn.style.animation = 'urgent-pulse 1s infinite';
+            yesBtn.style.boxShadow = '0 0 25px rgba(189, 244, 241, 0.8)';
+            
+            // Gradually increase difficulty for next state
+            dodgeDistance += 15; // More moderate increase
+            evasionSpeed = Math.max(0.15, evasionSpeed - 0.02);
+            
+            // Moderate screen shake effect
+            document.body.style.animation = 'screen-shake 0.3s ease-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 300);
+            
+        } else {
+            // Remove button with spectacular heart explosion
+            const rect = noBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            createHeartExplosion(centerX, centerY);
+            noBtn.style.animation = 'fadeOutScale 0.5s ease-out forwards';
+            
+            setTimeout(() => {
+                noBtn.remove();
+                // Make yes button irresistible
+                yesBtn.style.transform = 'scale(1.4)';
+                yesBtn.style.animation = 'victory-pulse 1s infinite';
+                yesBtn.style.boxShadow = '0 0 40px rgba(189, 244, 241, 1)';
+                yesBtn.textContent = 'YES! There\'s no escape now! 💖';
+            }, 500);
+        }
+        
+        // Make button progressively smaller but still clickable
+        if (noClickCount >= 2) {
+            const scale = Math.max(0.7 - (noClickCount - 2) * 0.05, 0.6); // Less aggressive scaling
+            noBtn.style.fontSize = scale + 'em';
+            noBtn.style.padding = (scale * 18) + 'px ' + (scale * 35) + 'px';
+            noBtn.style.minWidth = (scale * 150) + 'px';
+        }
+    });
+
+    // Yes button success
+    yesBtn.addEventListener('click', () => {
+        // Remove all fake buttons
+        document.querySelectorAll('.fake-btn').forEach(btn => btn.remove());
+        
+        // Create massive confetti effect
+        for (let i = 0; i < 120; i++) {
+            const confettiPiece = document.createElement('div');
+            confettiPiece.className = 'confetti-piece';
+            confettiPiece.style.left = Math.random() * 100 + 'vw';
+            confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            confettiPiece.style.animationDelay = Math.random() * 3 + 's';
+            confetti.appendChild(confettiPiece);
+        }
+        
+        // Victory screen
+        document.body.innerHTML = `
+            <div class="success-page">
+                <h1>🎉 YES! 🎉</h1>
+                <p>You made the perfect choice!</p>
+                <div class="celebration">
+                    <span>💖</span>
+                    <span>🌹</span>
+                    <span>💕</span>
+                    <span>✨</span>
+                    <span>🥰</span>
+                </div>
+                <p>Get ready for the most amazing Valentine's Day ever! 💝</p>
+            </div>
+        `;
+    });
+</script>
+
+</html>
+``` 
