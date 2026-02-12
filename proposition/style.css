@@ -475,7 +475,7 @@ header p {
     inset: 0;
     background: linear-gradient(180deg, transparent 55%, rgba(255, 197, 217, 0.35) 100%);
     pointer-events: none;
-    border-radius: 17px;
+    border-radius: 20px 0 20px 0;
 }
 
 .slide-btn {
