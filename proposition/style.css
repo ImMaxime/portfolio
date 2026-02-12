@@ -60,7 +60,7 @@ header, section, footer{
 h1{
     font-size: clamp(3em, 8vw, 9em);
     margin-bottom: 20px;
-    text-shadow: none;
+    text-shadow: 0 4px 8px rgba(255, 197, 217, 0.3);
 }
 h1 b{
     color: var(--color2);
@@ -136,8 +136,14 @@ section h2{
     font-size: clamp(2em, 5vw, 3em);
     margin-bottom: 40px;
     color: var(--color5);
+        text-shadow: 0 2px 4px rgba(255, 205, 222, 0.248);
+
     position: relative;
     z-index: 2;
+}
+
+footer h2, header p {
+    text-shadow: 0 2px 4px rgba(187, 141, 157, 0.5);
 }
 
 /* First section specific styles */
@@ -326,7 +332,7 @@ section h2{
     width: 100%;
     max-width: 340px;
     aspect-ratio: 4 / 5;
-    border-radius: 20px;
+    border-radius: 20px 0 20px 0;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
@@ -347,7 +353,7 @@ section h2{
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
-    border-radius: 17px;
+    border-radius: 20px 0 20px 0;
 }
 
 .slideshow-slides .slide.active {
@@ -405,7 +411,7 @@ section h2{
 
 .slideshow-dots {
     position: absolute;
-    bottom: 42px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -436,13 +442,12 @@ section h2{
     left: 0;
     right: 0;
     text-align: center;
-    padding: 10px;
+    padding: 6px;
     font-size: 1.05em;
     font-weight: 700;
     color: var(--color5);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
-    border-radius: 0 0 17px 17px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(4px);
     letter-spacing: 1px;
 }
 
@@ -880,6 +885,33 @@ section, [id] {
         width: 100%;
         max-width: 540px;
     }
+
+    /* Improved reason-item responsive styles */
+    .reasons-list {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    .reason-item {
+        padding: 16px 20px;
+        margin: 12px 0;
+        gap: 16px;
+    }
+
+    .reason-item .emoji {
+        font-size: 2.2em;
+        flex-shrink: 0;
+    }
+
+    .reason-content h3 {
+        font-size: 1.25em;
+        margin: 2px 0 6px 0;
+    }
+
+    .reason-content p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
 }
 
 @media (max-width: 768px) {
@@ -887,10 +919,32 @@ section, [id] {
         padding: 0 10px;
     }
 
-    .reasons-list .reason-item {
+    .reason-item {
         flex-direction: column;
         gap: 12px;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
+        padding: 18px 16px;
+        margin: 10px 0;
+    }
+
+    .reason-item .emoji {
+        font-size: 2.5em;
+        margin-bottom: 8px;
+    }
+
+    .reason-content {
+        width: 100%;
+    }
+
+    .reason-content h3 {
+        font-size: 1.2em;
+        margin: 0 0 8px 0;
+    }
+
+    .reason-content p {
+        font-size: 0.95em;
+        line-height: 1.45;
     }
     
     .button-container {
@@ -928,5 +982,44 @@ section, [id] {
 
     .skill-icon {
         font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .reasons-list {
+        padding: 0 5px;
+    }
+
+    .reason-item {
+        padding: 16px 12px;
+        margin: 8px 0;
+        border-radius: 12px;
+    }
+
+    .reason-item .emoji {
+        font-size: 2.2em;
+    }
+
+    .reason-content h3 {
+        font-size: 1.1em;
+    }
+
+    .reason-content p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    header, section, footer {
+        padding: 15px 5px;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 12px 20px;
+        margin: 10px;
+    }
+
+    .slideshow-container {
+        max-width: 250px;
     }
 }
