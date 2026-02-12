@@ -581,10 +581,22 @@ section:nth-child(2n) {
     width: 100vw;
     height: 50px;
     transform: translateY(-25px);
+    animation: moveBackgroundRight 4s linear infinite;
 }
 
 .separation.n2 {
     transform: translateY(-25px);
+    animation: moveBackgroundRight 4s linear infinite reverse;
+}
+
+/* Animation for moving the background image to the right */
+@keyframes moveBackgroundRight {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: 101px 0px;
+    }
 }
 
 /* Enhanced Button Styles */
