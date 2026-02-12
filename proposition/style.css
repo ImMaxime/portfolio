@@ -1,4 +1,4 @@
-:root{
+:root {
     --color1: #BDF4F1;
     --color2: #DCFCF6;
     --color3: #F9FFFF;
@@ -25,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-section{
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,26 +47,39 @@ section::before {
 }
 
 @keyframes sectionGlow {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { transform: scale(1.1) rotate(180deg); opacity: 0.6; }
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 0.6;
+    }
 }
 
-header, section, footer{
+header,
+section,
+footer {
     text-align: center;
     min-height: 80vh;
     padding: 40px 20px;
 }
 
-h1{
+h1 {
     font-size: clamp(3em, 8vw, 9em);
     margin-bottom: 20px;
     text-shadow: 0 4px 8px rgba(255, 197, 217, 0.3);
 }
-h1 b{
+
+h1 b {
     color: var(--color2);
     font-weight: 900;
 }
-header p{
+
+header p {
     font-size: 1.8em;
     color: var(--color3);
     margin-bottom: 30px;
@@ -95,13 +108,33 @@ header .btn-container {
     transform: translateX(-50%);
 }
 
-.heart:nth-child(1) { animation-delay: 0s; left: 40%; }
-.heart:nth-child(2) { animation-delay: 1s; left: 50%; }
-.heart:nth-child(3) { animation-delay: 2s; left: 60%; }
+.heart:nth-child(1) {
+    animation-delay: 0s;
+    left: 40%;
+}
+
+.heart:nth-child(2) {
+    animation-delay: 1s;
+    left: 50%;
+}
+
+.heart:nth-child(3) {
+    animation-delay: 2s;
+    left: 60%;
+}
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px) translateX(-50%); opacity: 0.7; }
-    50% { transform: translateY(-20px) translateX(-50%); opacity: 1; }
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(-50%);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(-50%);
+        opacity: 1;
+    }
 }
 
 /* Floating hearts that appear randomly */
@@ -116,34 +149,44 @@ header .btn-container {
 }
 
 @keyframes floatUpFromBottom {
-    0% { 
+    0% {
         transform: translateY(0) rotate(0deg) scale(1);
         opacity: 0.8;
     }
+
     20% {
         opacity: 1;
     }
+
     80% {
         opacity: 0.8;
     }
-    100% { 
+
+    100% {
         transform: translateY(-100vh) rotate(360deg) scale(0.5);
         opacity: 0;
     }
 }
 
-section h2{
+section h2 {
     font-size: clamp(2em, 5vw, 3em);
     margin-bottom: 40px;
     color: var(--color5);
-        text-shadow: 0 2px 4px rgba(255, 205, 222, 0.248);
-
+    text-shadow: 0 2px 4px rgba(255, 205, 222, 0.248);
     position: relative;
     z-index: 2;
 }
 
-footer h2, header p {
+footer h2,
+header p {
     text-shadow: 0 2px 4px rgba(187, 141, 157, 0.5);
+}
+
+.credit {
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(187, 141, 157, 0.8);
+    margin: 6px;
 }
 
 /* First section specific styles */
@@ -159,6 +202,7 @@ footer h2, header p {
         grid-template-columns: repeat(2, 1fr);
         gap: 18px;
     }
+
     #more .reason-item {
         align-items: center;
     }
@@ -189,7 +233,7 @@ footer h2, header p {
 
 .reason-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border-color: var(--color5);
 }
 
@@ -315,8 +359,13 @@ footer h2, header p {
 }
 
 @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 /* Slideshow / Diaporama */
@@ -454,6 +503,7 @@ footer h2, header p {
 header {
     background: var(--gradient-2);
 }
+
 footer {
     background: var(--gradient-2-reversed);
 }
@@ -472,7 +522,7 @@ section:nth-child(2n) {
     transform: translateY(-25px);
 }
 
-.separation.n2{
+.separation.n2 {
     transform: translateY(-25px);
 }
 
@@ -524,7 +574,8 @@ section:nth-child(2n) {
     background: var(--color5);
 }
 
-.btn-secondary, .btn-no {
+.btn-secondary,
+.btn-no {
     background: transparent;
     color: var(--color3);
     border-color: var(--color3);
@@ -570,10 +621,13 @@ section:nth-child(2n) {
 
 /* Gentle pulse animation */
 @keyframes gentle-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 5px 15px rgba(255, 197, 217, 0.4);
         transform: scale(1);
     }
+
     50% {
         box-shadow: 0 8px 25px rgba(255, 197, 217, 0.6);
         transform: scale(1.02);
@@ -582,29 +636,67 @@ section:nth-child(2n) {
 
 /* Enhanced No button evasive animations */
 @keyframes panic-shake {
-    0%, 100% { transform: scale(0.85) rotate(0deg); }
-    25% { transform: scale(0.85) rotate(-5deg) translateX(-5px); }
-    50% { transform: scale(0.85) rotate(5deg) translateX(5px); }
-    75% { transform: scale(0.85) rotate(-3deg) translateX(-3px); }
+
+    0%,
+    100% {
+        transform: scale(0.85) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(0.85) rotate(-5deg) translateX(-5px);
+    }
+
+    50% {
+        transform: scale(0.85) rotate(5deg) translateX(5px);
+    }
+
+    75% {
+        transform: scale(0.85) rotate(-3deg) translateX(-3px);
+    }
 }
 
 @keyframes dodge-laugh {
-    0% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.1) rotate(-10deg); }
-    50% { transform: scale(0.9) rotate(10deg); }
-    75% { transform: scale(1.05) rotate(-5deg); }
-    100% { transform: scale(1) rotate(0deg); }
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(0.9) rotate(10deg);
+    }
+
+    75% {
+        transform: scale(1.05) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 @keyframes miss-click {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.95) rotate(5deg); background-color: var(--color5); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95) rotate(5deg);
+        background-color: var(--color5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Ensure anchored sections are not hidden behind tall content when scrolled-to */
-section, [id] {
-    scroll-margin-top: 6rem; /* adjust this value if you have a taller header */
+section,
+[id] {
+    scroll-margin-top: 6rem;
+    /* adjust this value if you have a taller header */
 }
 
 /* Subtle focus animation when jumping to an anchor */
@@ -613,15 +705,25 @@ section, [id] {
 }
 
 @keyframes anchor-focus {
-    0% { transform: translateY(8px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(8px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes urgent-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1.2);
         box-shadow: 0 0 30px rgba(255, 197, 217, 0.9);
     }
+
     50% {
         transform: scale(1.25);
         box-shadow: 0 0 40px rgba(255, 197, 217, 1);
@@ -629,10 +731,13 @@ section, [id] {
 }
 
 @keyframes victory-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1.4);
         box-shadow: 0 0 40px rgba(255, 197, 217, 1);
     }
+
     50% {
         transform: scale(1.5);
         box-shadow: 0 0 60px rgba(255, 197, 217, 1);
@@ -640,60 +745,83 @@ section, [id] {
 }
 
 @keyframes screen-shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
 }
 
 @keyframes taunt-fade {
-    0% { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
-    70% { 
-        opacity: 1; 
-        transform: translateY(-20px) scale(1.1); 
+
+    70% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.1);
     }
-    100% { 
-        opacity: 0; 
-        transform: translateY(-40px) scale(0.8); 
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.8);
     }
 }
 
 @keyframes poof {
-    0% { 
-        transform: scale(1); 
-        opacity: 1; 
+    0% {
+        transform: scale(1);
+        opacity: 1;
     }
-    50% { 
-        transform: scale(1.3); 
-        opacity: 0.5; 
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.5;
     }
-    100% { 
-        transform: scale(0); 
-        opacity: 0; 
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
     }
 }
 
 @keyframes fade-away {
-    0% { 
-        opacity: 0.7; 
-        transform: scale(1); 
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
     }
-    100% { 
-        opacity: 0; 
-        transform: scale(0.8); 
+
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
     }
 }
 
 @keyframes mini-explode {
-    0% { 
-        transform: scale(1) rotate(0deg); 
-        opacity: 1; 
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
     }
-    100% { 
-        transform: scale(0.5) rotate(360deg) translateY(-50px); 
-        opacity: 0; 
+
+    100% {
+        transform: scale(0.5) rotate(360deg) translateY(-50px);
+        opacity: 0;
     }
 }
 
@@ -723,10 +851,13 @@ section, [id] {
 }
 
 @keyframes rainbow-glow {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%;
         box-shadow: 0 0 30px rgba(255, 197, 217, 0.8);
     }
+
     50% {
         background-position: 100% 50%;
         box-shadow: 0 0 40px rgba(255, 197, 217, 0.8);
@@ -741,8 +872,15 @@ section, [id] {
 }
 
 @keyframes celebration-bg {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 /* Confetti animation */
@@ -770,6 +908,7 @@ section, [id] {
         transform: translateY(-100vh) rotate(0deg) scale(1);
         opacity: 1;
     }
+
     100% {
         transform: translateY(100vh) rotate(1080deg) scale(0.5);
         opacity: 0;
@@ -812,19 +951,40 @@ section, [id] {
     margin: 0 10px;
 }
 
-.celebration span:nth-child(1) { animation-delay: 0s; }
-.celebration span:nth-child(2) { animation-delay: 0.2s; }
-.celebration span:nth-child(3) { animation-delay: 0.4s; }
-.celebration span:nth-child(4) { animation-delay: 0.6s; }
-.celebration span:nth-child(5) { animation-delay: 0.8s; }
+.celebration span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.celebration span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.celebration span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.celebration span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.celebration span:nth-child(5) {
+    animation-delay: 0.8s;
+}
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-30px);
     }
+
     60% {
         transform: translateY(-15px);
     }
@@ -844,10 +1004,12 @@ section, [id] {
         transform: translate(0, 0) scale(1);
         opacity: 1;
     }
+
     50% {
         transform: translate(var(--end-x), var(--end-y)) scale(1.2);
         opacity: 0.8;
     }
+
     100% {
         transform: translate(var(--end-x), var(--end-y)) scale(0);
         opacity: 0;
@@ -860,6 +1022,7 @@ section, [id] {
         transform: scale(1);
         opacity: 1;
     }
+
     100% {
         transform: scale(0);
         opacity: 0;
@@ -946,16 +1109,18 @@ section, [id] {
         font-size: 0.95em;
         line-height: 1.45;
     }
-    
+
     .button-container {
         flex-direction: column;
         gap: 20px;
     }
-    
-    header, section, footer {
+
+    header,
+    section,
+    footer {
         padding: 20px 10px;
     }
-    
+
     .btn {
         font-size: 1.1em;
         padding: 15px 25px;
@@ -1009,7 +1174,9 @@ section, [id] {
         line-height: 1.4;
     }
 
-    header, section, footer {
+    header,
+    section,
+    footer {
         padding: 15px 5px;
     }
 
